@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
 import { motion } from 'framer-motion'
-import { IHighlight, ILink, SkillType } from '../../data/IProject'
-import { Tags } from '../shared/Tags/Tags'
+import { IHighlight, ILink } from '../../data/IProject'
 import { CogIcon } from '../../assets/svg/CogIcon'
 import { CogFilledIcon } from '../../assets/svg/CogFilledIcon'
+import { BOTTOM_GAP, MEDIUM_SCREEN, SIDE_GAP } from '../../styles/GlobalStyles'
 
 const list: IHighlight[] = [
 	{
@@ -15,13 +15,6 @@ const list: IHighlight[] = [
 		},
 	},
 	{
-		header: 'Portfolio',
-		link: {
-			title: 'kellygorr.com',
-			link: 'https://kellygorr.com/',
-		},
-	},
-	{
 		header: 'Photography',
 		link: {
 			title: 'photography.kellygorr.com',
@@ -29,8 +22,7 @@ const list: IHighlight[] = [
 		},
 	},
 	{
-		header: 'Website',
-		tags: [SkillType.TypeScript, SkillType.React, SkillType.HTML, SkillType.CSS],
+		header: 'About the website',
 		link: {
 			title: 'github.com/kellygorr/portfolio-website-react',
 			link: 'https://github.com/kellygorr/portfolio-website-react',
@@ -41,6 +33,7 @@ const list: IHighlight[] = [
 interface IFooterProps {
 	isDarkMode: boolean
 	toggleDarkMode: () => void
+	setQuery: (query: string) => void
 }
 
 const cog1 = {
@@ -49,8 +42,8 @@ const cog1 = {
 }
 
 const cog2 = {
-	darkMode: { rotate: 0, x: -11, y: -10 },
-	lightMode: { rotate: -270, x: -11, y: -10 },
+	darkMode: { rotate: 0, x: -12, y: -10 },
+	lightMode: { rotate: -270, x: -12, y: -10 },
 }
 
 export const Footer = (props: IFooterProps): JSX.Element => (
@@ -63,7 +56,6 @@ export const Footer = (props: IFooterProps): JSX.Element => (
 							<Title>{item.header}</Title>
 							{(item.link as ILink).title}
 						</StyledLink>
-						<TagWrapper>{item.tags && <Tags tags={item.tags} />}</TagWrapper>
 					</ListItem>
 				))}
 			</List>
@@ -76,7 +68,7 @@ export const Footer = (props: IFooterProps): JSX.Element => (
 						initial={false}
 						animate={props.isDarkMode ? 'darkMode' : 'lightMode'}
 						transition={{ duration: 1 }}
-						style={{ scale: 0.9 }}
+						style={{ scale: 0.8 }}
 					>
 						<CogIcon />
 					</AnimateCog>
@@ -86,7 +78,7 @@ export const Footer = (props: IFooterProps): JSX.Element => (
 						initial={false}
 						animate={props.isDarkMode ? 'darkMode' : 'lightMode'}
 						transition={{ duration: 1 }}
-						style={{ scale: 0.5 }}
+						style={{ scale: 0.4 }}
 					>
 						<CogFilledIcon />
 					</AnimateCog>
@@ -96,11 +88,12 @@ export const Footer = (props: IFooterProps): JSX.Element => (
 	</Container>
 )
 
-const Container = styled.div`
+const Container = styled.footer`
 	display: flex;
 	flex-wrap: wrap-reverse;
+	flex-direction: column-reverse;
 	width: 100%;
-	padding: 40px 3%;
+	padding: 30px ${SIDE_GAP} ${BOTTOM_GAP} ${SIDE_GAP};
 	color: ${({ theme }) => theme.footerText};
 	font-size: 0.9em;
 	background-color: ${({ theme }) => theme.footerBackground};
@@ -124,17 +117,27 @@ const Container = styled.div`
 	*:focus {
 		border-color: ${({ theme }) => theme.footerText};
 	}
+
+	@media (min-width: ${MEDIUM_SCREEN}px) {
+		flex-direction: row;
+	}
 `
 const Left = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
+	width: 100%;
 `
 
 const Right = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
+	align-items: center;
+
+	@media (min-width: ${MEDIUM_SCREEN}px) {
+		align-items: initial;
+	}
 `
 
 const List = styled.ul`
@@ -159,23 +162,28 @@ const StyledLink = styled.a`
 	border: 2px solid transparent;
 `
 
-const TagWrapper = styled.div`
-	padding: 5px 8px;
-`
 const Settings = styled.div`
 	display: flex;
 	justify-content: flex-end;
 `
 
 const SettingsButton = styled.button`
-	cursor: pointer;
-	width: 60px;
-	height: 45px;
-	padding: 5px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	min-height: 45px;
+	width: 100%;
+	padding: 20px;
+
 	border-radius: 8px;
 	border: 2px solid transparent;
+	transition: width 200ms ease-out;
+
+	@media (min-width: ${MEDIUM_SCREEN}px) {
+		width: auto;
+		padding: 3px 10px 0 10px;
+		justify-content: initial;
+	}
 `
 const AnimateCog = styled(motion.div)`
 	width: 30px;

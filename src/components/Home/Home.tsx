@@ -1,33 +1,19 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components/macro'
+import styled from 'styled-components/macro'
 import { projects } from '../../data'
 import { IProject } from '../../data/IProject'
-import { GRID_GAP, GRID_WIDTH } from '../../styles/GlobalStyles'
-import { Thumbnail } from '../shared'
+import { GRID_GAP, GRID_WIDTH, LARGE_SCREEN, MEDIUM_SCREEN, SMALL_SCREEN } from '../../styles/GlobalStyles'
+import { RandomBinaryStr, Thumbnail, useRowHook } from '../shared'
 
 interface IHomeProps {
 	isDarkMode: boolean
+	setQuery: (query: string) => void
 }
 
 export const Home = (props: IHomeProps): JSX.Element => {
-	const ref = React.useRef<HTMLDivElement>()
-	const [rowLength, setRowLength] = React.useState(0)
-	const [overflowAmount, setOverflowAmount] = React.useState(0)
 	const [blankThumbnails, setBlankThumbnails] = React.useState<IProject[]>([])
-	// const [isLoaded, setIsLoaded] = React.useState(false)
 
-	React.useEffect(() => {
-		window.addEventListener('resize', handleResize)
-		handleResize()
-		// setTimeout(() => {
-		// 	setIsLoaded(true)
-		// }, 1000)
-
-		// cleanup this component
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
-	}, [])
+	const [ref, rowLength, overflowAmount] = useRowHook(projects.length)
 
 	/* 
 		Generate array of blank thumbnails.  
@@ -39,25 +25,14 @@ export const Home = (props: IHomeProps): JSX.Element => {
 			const diff = overflowAmount - blankThumbnails.length
 			const newArray: IProject[] = Array.from(Array(diff), () => ({
 				details: {
-					header: RandomStr(),
+					header: RandomBinaryStr(),
 					thumbnail: null,
-					tags: Array.from(Array(Math.floor(Math.random() * 3) + 1), () => RandomStr()),
+					tags: Array.from(Array(Math.floor(Math.random() * 3) + 1), () => RandomBinaryStr()),
 				},
 			}))
 			setBlankThumbnails([...blankThumbnails, ...newArray])
 		}
 	}, [rowLength, overflowAmount, blankThumbnails])
-
-	const handleResize = () => {
-		if (ref) {
-			const width = ref?.current?.clientWidth
-			// In order to calculate the correct amount of cells, the padding/margin must be apart of the cell
-			const childWidth = ref?.current?.children[0]?.clientWidth
-			const rowLength = Math.floor(width / childWidth)
-			setRowLength(rowLength)
-			setOverflowAmount(rowLength - (projects.length % rowLength))
-		}
-	}
 
 	return (
 		<Gallery ref={ref}>
@@ -72,6 +47,7 @@ export const Home = (props: IHomeProps): JSX.Element => {
 							transform: `translate3d(${translateX}, 0,0)`,
 						}}
 						hideTags={rowLength < 2}
+						setQuery={props.setQuery}
 					/>
 				)
 			})}
@@ -89,6 +65,7 @@ export const Home = (props: IHomeProps): JSX.Element => {
 								transform: `translate3d(${translateX}, 0,0)`,
 							}}
 							hideTags={rowLength < 2}
+							setQuery={props.setQuery}
 						/>
 					)
 				})}
@@ -98,23 +75,18 @@ export const Home = (props: IHomeProps): JSX.Element => {
 
 const GetTranslateX = (isRowEven: boolean): string => (isRowEven ? '-30px' : '30px')
 
-const RandomStr = () => {
-	const len = Math.floor(Math.random() * 10) + 3
-	const randomString = '01'
-	let ans = ''
-	for (let i = len; i > 0; i--) {
-		ans += randomString[Math.floor(Math.random() * randomString.length)]
-	}
-	return ans
-}
-
-export const ThumbnailGrid = css`
+const Gallery = styled.ul`
 	width: 100%;
 	display: grid;
-	grid-template-columns: [gallery] repeat(auto-fit, ${GRID_WIDTH + GRID_GAP}px);
-`
-
-const Gallery = styled.div`
-	${ThumbnailGrid}
+	grid-template-columns: minmax(200px, 450px);
 	justify-content: center;
+	/* DO NOT ADD PADDING OR MARGIN or GAP, THIS WILL MESS UP THE CALC.  Padding must be added to thumbnail */
+
+	@media (min-width: ${SMALL_SCREEN}px) {
+		grid-template-columns: repeat(2, minmax(200px, 450px));
+	}
+
+	@media (min-width: ${LARGE_SCREEN}px) {
+		grid-template-columns: repeat(auto-fit, ${GRID_WIDTH + GRID_GAP}px);
+	}
 `

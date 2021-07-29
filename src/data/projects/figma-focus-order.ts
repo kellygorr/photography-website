@@ -20,7 +20,7 @@ export const focusOrderer: IProject = {
 	details: {
 		header: 'Figma Focus Orderer',
 		thumbnail: thumbnail,
-		tags: [TagType.Microsoft, TagType.Plugin],
+		tags: [TagType.Microsoft, TagType.Tooling],
 	},
 	content: [
 		{
@@ -30,7 +30,7 @@ export const focusOrderer: IProject = {
 				slides: [
 					{
 						img: img5,
-						caption: 'Figma plugin page',
+						caption: 'Community page',
 					},
 					{
 						img: img8,

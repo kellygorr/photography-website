@@ -1,1 +1,2 @@
-export { Search } from './Search'
+export { SearchResults } from './SearchResults'
+export { SearchBar } from './SearchBar'

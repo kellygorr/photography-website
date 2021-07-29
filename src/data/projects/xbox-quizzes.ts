@@ -23,7 +23,7 @@ export const xboxQuizzes: IProject = {
 	details: {
 		header: 'Xbox Quizzes',
 		thumbnail: thumbnail,
-		tags: [TagType.Xbox, TagType.Plugin, TagType.Quiz],
+		tags: [TagType.Xbox, TagType.Template, TagType.Quiz],
 	},
 	content: [
 		{
@@ -75,7 +75,7 @@ export const xboxQuizzes: IProject = {
 		},
 		{
 			header: 'Role',
-			body: 'I was tasked with building a quiz plugin that would be used to customize and run Xbox quizzes.  The intro page, question section, and results page were completely customizable, and options included video backgrounds, different result page layouts, and a vertical button layout.  The text fields for the body copy and buttons were flexible enough to accommodate varying text lengths so that a quiz could be translated into multiple languages without having to adjust the layout.',
+			body: 'I was tasked with building a quiz template (plugin) that would be used to customize and run Xbox quizzes.  The intro page, question section, and results page were completely customizable, and options included video backgrounds, different result page layouts, and a vertical button layout.  The text fields for the body copy and buttons were flexible enough to accommodate varying text lengths so that a quiz could be translated into multiple languages without having to adjust the layout.',
 		},
 		{
 			header: 'Details',

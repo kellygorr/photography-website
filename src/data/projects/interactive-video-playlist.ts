@@ -26,7 +26,7 @@ export const interactiveVideoPlaylist: IProject = {
 	details: {
 		header: 'Interactive Video Playlist',
 		thumbnail: thumbnail,
-		tags: [TagType.Xbox, TagType.Quiz, TagType.Poll],
+		tags: [TagType.Xbox, TagType.Template, TagType.Quiz, TagType.Poll],
 	},
 	content: [
 		{
@@ -76,7 +76,7 @@ export const interactiveVideoPlaylist: IProject = {
 		},
 		{
 			header: 'Overview',
-			body: 'Xbox Interactive is a JavaScript app that creates an interactive video playlist. It plays through videos that are customized with interactive pop-in content that have timed appearances throughout the video. The content can be trivia, quizzes, polls, and more. One use for this plugin could be timing pop-in content over a single video, or it could be used to create a video playlist.',
+			body: 'Xbox Interactive is a JavaScript app that creates an interactive video playlist. It plays through videos that are customized with interactive pop-in content that have timed appearances throughout the video. The content can be trivia, quizzes, polls, and more. One use for this tool could be timing pop-in content over a single video, or it could be used to create a video playlist.',
 		},
 		{
 			header: 'Role',

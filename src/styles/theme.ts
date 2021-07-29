@@ -18,6 +18,7 @@ export interface Theme {
 	text: string
 	textNegative: string
 	background: string
+	backgroundNegative: string
 	footerText: string
 	footerBackground: string
 	thumbnail: string
@@ -29,6 +30,7 @@ export const themeLight: Theme = {
 	text: NeutralColors.gray81,
 	textNegative: NeutralColors.white,
 	background: NeutralColors.white,
+	backgroundNegative: NeutralColors.gray85,
 	footerText: NeutralColors.white,
 	footerBackground: NeutralColors.gray95,
 	thumbnail: NeutralColors.gray06,
@@ -40,6 +42,7 @@ export const themeDark: Theme = {
 	text: NeutralColors.white,
 	textNegative: NeutralColors.gray81,
 	background: NeutralColors.gray85,
+	backgroundNegative: NeutralColors.white,
 	footerText: NeutralColors.white,
 	footerBackground: NeutralColors.gray95,
 	thumbnail: NeutralColors.gray06,

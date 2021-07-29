@@ -6,6 +6,7 @@ import { Link } from './Section'
 
 interface IHighlightProps {
 	data: IHighlight
+	setQuery: (query: string) => void
 }
 
 export const Highlight: React.FC<IHighlightProps> = (props: IHighlightProps) => {
@@ -18,7 +19,12 @@ export const Highlight: React.FC<IHighlightProps> = (props: IHighlightProps) => 
 					[{' '}
 					{data.tags &&
 						(data.tags as (TagType | SkillType | ToolType)[]).map((tag: TagType | SkillType | ToolType, index) => (
-							<Tag key={index} isLastTag={data.tags ? index === data.tags.length - 1 : false} tag={tag} />
+							<Tag
+								key={index}
+								isLastTag={data.tags ? index === data.tags.length - 1 : false}
+								tag={tag}
+								setQuery={props.setQuery}
+							/>
 						))}{' '}
 					]
 				</List>
@@ -41,12 +47,10 @@ export const Highlight: React.FC<IHighlightProps> = (props: IHighlightProps) => 
 
 const HighlightSection = styled.div`
 	display: flex;
-	padding: 0 5%;
+	padding: 0 8%;
 
-	padding: 0 15%;
-
-	@media (max-width: 1200px) {
-		padding: 0 8%;
+	@media (min-width: 1200px) {
+		padding: 0 15%;
 	}
 `
 

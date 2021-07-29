@@ -1,9 +1,22 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, keyframes } from 'styled-components'
 import './fonts.css'
 import { Theme } from './theme'
 
 export const GRID_WIDTH = 350
 export const GRID_GAP = 20
+export const SIDE_GAP = '2.5vw'
+export const BOTTOM_GAP = '40px'
+export const LARGE_SCREEN = 1366
+export const MEDIUM_SCREEN = 1024
+export const SMALL_SCREEN = 640
+
+/**For non-home screen thumbnails */
+export const THUMBNAIL_SINGLE_COLUMN = 779
+
+export const AnimateIn = keyframes`
+	from { opacity: 0;}
+	to { opacity: 1; }
+`
 
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 
@@ -41,6 +54,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 	}
 
 	button {
+		cursor: pointer;
 		border-radius: 0;
 		border-width: 0;
 		background: transparent;

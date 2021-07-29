@@ -6,13 +6,14 @@ import { Tag } from './Tag'
 
 interface IThumbnailProps {
 	tags: (TagType | SkillType | ToolType | string)[]
+	setQuery: (query: string) => void
 }
 
 export const Tags: React.FC<IThumbnailProps> = (props: IThumbnailProps) => {
 	return (
 		<TagWrapper aria-hidden>
 			{props.tags.map((tag, index) => (
-				<Tag key={index} isLastTag={index === props.tags.length - 1} tag={tag} />
+				<Tag key={index} isLastTag={index === props.tags.length - 1} tag={tag} setQuery={props.setQuery} />
 			))}
 		</TagWrapper>
 	)

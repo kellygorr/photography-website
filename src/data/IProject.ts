@@ -3,7 +3,7 @@ export enum TagType {
 	Microsoft = 'Microsoft',
 	Poll = 'poll',
 	Quiz = 'quiz',
-	Plugin = 'plugin',
+	Template = 'template',
 	Tooling = 'tooling',
 	Infographic = 'infographic',
 	Website = 'website',
@@ -51,7 +51,7 @@ export const relatedTags: (TagType | SkillType | ToolType)[][] = [
 	[SkillType.PHP, SkillType.MySQL],
 	[TagType.Xbox, TagType.Microsoft],
 	[TagType.Xbox, TagType.Kinect],
-	[TagType.Tooling, TagType.Plugin],
+	[TagType.Tooling, TagType.Template],
 ]
 
 export enum SectionType {

@@ -12,7 +12,7 @@ export const xboxBillboardGenerator: IProject = {
 	details: {
 		header: 'Xbox Billboard Generator',
 		thumbnail: thumbnail,
-		tags: [TagType.Xbox, TagType.Plugin, TagType.Tooling],
+		tags: [TagType.Xbox, TagType.Tooling],
 	},
 	content: [
 		{

@@ -1,31 +1,33 @@
 import * as React from 'react'
 import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
 
 interface ITagProps {
 	isLastTag: boolean
 	tag: string
-	isLinkDisabled?: boolean
+	setQuery: (query: string) => void
 }
 
 export const Tag: React.FC<ITagProps> = (props: ITagProps) => {
-	const { isLastTag, tag, isLinkDisabled } = props
+	const { isLastTag, tag } = props
 	const tagName = tag === 'UI-UX' ? 'UI/UX' : tag
+
+	const handleClick = (text: string) => {
+		const query = text
+		props.setQuery(query)
+	}
+
 	return (
 		<>
-			{isLinkDisabled ? (
-				tagName
-			) : (
-				<TagLink to={'/search/' + tag} tabIndex={-1}>
-					{tagName}
-				</TagLink>
-			)}
+			<TagButton onClick={() => handleClick(tagName)} tabIndex={-1}>
+				{tagName}
+			</TagButton>
 			{!isLastTag && ', '}
 		</>
 	)
 }
 
-const TagLink = styled(Link)`
+const TagButton = styled.span`
+	cursor: pointer;
 	width: 100%;
 	padding-top: 3px;
 	text-align: center;

@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-export const Header = (): JSX.Element => {
+
+interface IHeaderProps {
+	setIsSearchOpen: (isOpen: boolean) => void
+}
+
+export const Header = (props: IHeaderProps): JSX.Element => {
+	const handleClick = () => {
+		props.setIsSearchOpen(false)
+	}
 	return (
 		<Container>
 			<Logo>
-				<StyledLink to="/">Kelly Gorr</StyledLink>
+				<StyledLink to="/" onClick={handleClick}>
+					Kelly Gorr
+				</StyledLink>
 			</Logo>
 			<H2>UX Engineer + Designer</H2>
 		</Container>
@@ -13,10 +23,10 @@ export const Header = (): JSX.Element => {
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	height: 100%;
-	padding: 0 3%;
+	padding-top: 50px;
 
 	*:focus {
 		border-color: ${({ theme }) => theme.accent};
