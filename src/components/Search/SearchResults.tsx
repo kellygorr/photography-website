@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { projects } from '../../data'
 import { IProject, relatedTags, TagType, SkillType } from '../../data/IProject'
-import { GRID_WIDTH, GRID_GAP, THUMBNAIL_SINGLE_COLUMN, SMALL_SCREEN } from '../../styles/GlobalStyles'
+import { SMALL_SCREEN } from '../../styles/GlobalStyles'
 import { Heading } from '../Page'
-import { Tag, Thumbnail } from '../shared'
+import { Tags, Thumbnail } from '../shared'
 
 interface ISearchProps {
+	projects: IProject[]
 	query: string
 	setQuery: (query: string) => void
 	thumbnailClick: () => void
@@ -19,26 +19,31 @@ export const SearchResults = (props: ISearchProps): JSX.Element => {
 	if (!props.query) {
 		return null
 	}
-	const relatedMatches: IProjectSearch[] = relatedQueryMatches(props.query)
-	let matches: IProjectSearch[] = queryMatches(props.query)
+	const relatedMatches: IProjectSearch[] = relatedQueryMatches(props.projects, props.query)
+	let matches: IProjectSearch[] = queryMatches(props.projects, props.query)
 	matches = removeDuplicateTitles([...relatedMatches, ...matches])
 
 	const searchResults: IProjectSearch[] = matches.filter((match) => match.query === props.query)
 	const relatedResults: IProjectSearch[] = matches.filter((match) => match.query !== props.query)
 	const relatedResultTags =
 		relatedResults && relatedResults.map((project) => project.query).filter((value, index, self) => self.indexOf(value) === index)
-
+	console.log('searchResults', searchResults)
+	console.log('relatedResults', relatedResults)
 	return (
-		<Results>
+		<>
 			{searchResults.length > 0 ? (
 				<Gallery>
-					<Heading>{`Results for ${props.query}`}</Heading>
+					<Heading>
+						<span>Results </span>
+						<Tags tags={[props.query]} setQuery={props.setQuery} />
+					</Heading>
 					{searchResults.map((project: IProjectSearch) => (
 						<Thumbnail
 							key={project.details.header}
 							data={project.details}
 							thumbnailClick={props.thumbnailClick}
 							setQuery={props.setQuery}
+							showFull={true}
 						/>
 					))}
 				</Gallery>
@@ -49,23 +54,16 @@ export const SearchResults = (props: ISearchProps): JSX.Element => {
 					</Message>
 				</>
 			)}
+			<Gallery>
+				<Divider />
+			</Gallery>
 
 			{relatedResults.length > 0 && (
 				<>
 					<Gallery>
 						<Heading>
-							<>
-								Related results [
-								{relatedResultTags.map((tag, index) => (
-									<Tag
-										key={tag}
-										isLastTag={tag ? index === relatedResultTags.length - 1 : false}
-										tag={tag}
-										setQuery={props.setQuery}
-									/>
-								))}
-								]
-							</>
+							<span>Related results </span>
+							<Tags tags={relatedResultTags} setQuery={props.setQuery} />
 						</Heading>
 						{relatedResults.map((project: IProjectSearch) => (
 							<Thumbnail
@@ -73,16 +71,17 @@ export const SearchResults = (props: ISearchProps): JSX.Element => {
 								data={project.details}
 								thumbnailClick={props.thumbnailClick}
 								setQuery={props.setQuery}
+								showFull={true}
 							/>
 						))}
 					</Gallery>
 				</>
 			)}
-		</Results>
+		</>
 	)
 }
 
-const queryMatches = (query: string): IProjectSearch[] => {
+const queryMatches = (projects: IProject[], query: string): IProjectSearch[] => {
 	const tagMatches: IProject[] = projects.filter(
 		(project: IProject) => project.details.tags && project.details.tags.find((tag) => tag.toLowerCase() === query.toLowerCase())
 	)
@@ -116,15 +115,13 @@ const relatedQueryTags = (query: string) => {
 	return tags.filter((tag: TagType | SkillType) => tag !== query)
 }
 
-const relatedQueryMatches = (query: string): IProjectSearch[] => {
+const relatedQueryMatches = (projects: IProject[], query: string): IProjectSearch[] => {
 	const tags: (TagType | SkillType)[] = relatedQueryTags(query)
-	return tags.map((tag) => queryMatches(tag)).flat(1) // Flatten IProjectSearch[][] to IProjectSearch[]
+	return tags.map((tag) => queryMatches(projects, tag)).flat(1) // Flatten IProjectSearch[][] to IProjectSearch[]
 }
 
-const Results = styled.div``
-
 const Message = styled.div`
-	height: 100%;
+	flex: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -134,6 +131,7 @@ const Gallery = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 450px));
 	justify-content: center;
+	grid-gap: 10px;
 
 	@media (min-width: ${SMALL_SCREEN}px) {
 		grid-template-columns: repeat(2, minmax(200px, 450px));
@@ -142,5 +140,20 @@ const Gallery = styled.ul`
 	> h2 {
 		grid-row: 1;
 		grid-column: 1/-1;
+
+		> span {
+			padding-right: 5px;
+		}
 	}
+
+	> hr {
+		grid-row: 1;
+		grid-column: 1/-1;
+		margin: 50px 0;
+	}
+`
+const Divider = styled.hr`
+	height: 1px;
+	width: 100%;
+	background-color: ${({ theme }) => theme.thumbnail};
 `

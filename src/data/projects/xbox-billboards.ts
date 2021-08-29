@@ -1,4 +1,4 @@
-import { IProject, FileType, SkillType } from '../IProject'
+import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/28.jpg'
@@ -60,7 +60,7 @@ export const xboxBillboards: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'Billboards are single page Xbox One promotions for games, TV, and more.  Hundreds of billboards have been published on the Xbox One since 2013.  They are completely customizable (buttons, text, background video/audio) and can integrate team plugins (preroll videos, slideshows, quizzes, etc.).  Billboard templates and the billboard generator were created to allow team designers to make billboards quickly on their own.',
 		},
 		{
@@ -68,22 +68,22 @@ export const xboxBillboards: IProject = {
 			body: 'The templates for the billboards were continuously evolving and being updated by myself and other members of my team.  I greatly expanded the available customization options adding:   Text customizations, stackable buttons, data tracking, and a scrollable terms and conditions overlay.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform and Accessories',
+					header: HighlightName.Platform_Accessories,
 					tags: [TagType.Xbox, TagType.Kinect],
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Xbox Programing Team designers',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr & Jana Sheehan',
 				},
 			],

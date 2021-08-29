@@ -4,10 +4,11 @@ import { Theme } from './theme'
 
 export const GRID_WIDTH = 350
 export const GRID_GAP = 20
-export const SIDE_GAP = '2.5vw'
+export const SIDE_GAP = '4vw'
 export const BOTTOM_GAP = '40px'
 export const LARGE_SCREEN = 1366
 export const MEDIUM_SCREEN = 1024
+export const MEDIUM_SMALL_SCREEN = 768
 export const SMALL_SCREEN = 640
 
 /**For non-home screen thumbnails */
@@ -27,6 +28,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 		box-sizing: border-box;
 		border-spacing: 0px;
 		font-weight: normal;
+		font-size: inherit;
 	}
 
 	*:before,
@@ -40,7 +42,9 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 		width: 100%;
 		margin: 0;
 		padding: 0;
+
 		font-family: 'open_sansregular';
+		font-size: 1rem;
 		color: ${({ theme }) => theme.text};
 	}
 
@@ -64,9 +68,18 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 	a {
 		color: inherit;
 		text-decoration: inherit;
+
+		&:hover {
+			cursor: pointer;
+			text-decoration: underline;
+		}
 	}
 
 	ul {
 		list-style-type:none;
+	}
+
+	hr {
+		border: none;
 	}
 `

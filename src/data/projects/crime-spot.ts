@@ -1,4 +1,4 @@
-import { IProject, FileType, TagType, ToolType } from '../IProject'
+import { IProject, FileType, TagType, ToolType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/22.jpg'
 const thumbnail2 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/19.png'
@@ -35,14 +35,14 @@ export const crimeSpot: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'Mobile/web design for an entertainment app that allows people to track real life homicides and other violent crime in their city.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Tools',
+					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator, ToolType.Photoshop, ToolType.InDesign],
 				},
 			],

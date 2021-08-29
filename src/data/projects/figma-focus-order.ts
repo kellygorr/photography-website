@@ -1,4 +1,4 @@
-import { IProject, TagType, SkillType, FileType } from '../IProject'
+import { IProject, TagType, SkillType, FileType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/77.jpg'
 const thumbnail2 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/75.jpg'
@@ -76,18 +76,18 @@ export const focusOrderer: IProject = {
 			},
 		},
 		{
-			header: 'URL',
+			header: SectionName.URL,
 			body: '<a href="https://www.figma.com/community/plugin/731310036968334777/A11y---Focus-Orderer">https://www.figma.com/community/plugin/731310036968334777/A11y---Focus-Orderer</a>',
 		},
 		{
-			header: 'Accessibility',
+			header: SectionName.Accessibility,
 			body: `Microsoft's Focus Orderer is a plugin for Figma that allows designers to build accessibility into their designs.  It is publicly available to the figma community.`,
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.TypeScript, SkillType.React, SkillType.HTML, SkillType.CSS, SkillType.UIUX],
 				},
 			],
@@ -95,44 +95,40 @@ export const focusOrderer: IProject = {
 			1) Edit screen to add roles, properties, and comments on each annotation 2) First Run Experience tutorial for new plugin users 3) Auto load user annotations when plugin launches 4) A readout of the annotation details so users can see them without having to download the plugin`,
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Figma],
 				},
 				{
-					header: 'Featured In',
-					body: 'Figma Community (Plugins)',
-				},
-				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'Sept. 2020 - Present',
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Damien Aistrope, Ben Truelove',
 				},
 				{
-					header: 'Illustration',
+					header: HighlightName.Illustrator,
 					body: 'Jason Custer, Nando Costa',
 				},
 				{
-					header: 'Motion',
+					header: HighlightName.Motion,
 					body: 'Chris Lorance',
 				},
 				{
-					header: 'Original plugin by',
+					header: `Original plugin ${HighlightName.Engineer}`,
 					body: 'Tiffany Chen',
 				},
 				{
-					header: 'Engineering',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr',
 				},
 			],
 		},
 		{
-			header: 'Hype',
+			header: SectionName.Hype,
 			attachments: [
 				{
 					header: `Microsoft Design Twitter`,

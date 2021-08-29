@@ -13,9 +13,10 @@ export const Heading: React.FC<IPageProps> = (props: IPageProps) => {
 }
 
 const Container = styled.h2`
+	display: flex;
 	font-family: 'Museo_Slab_500_2';
-	font-size: 1.5em;
-	padding: 20px 0;
+	font-size: 1.5rem;
+	line-height: initial;
 
 	&:first-child {
 		padding-top: 0;
@@ -25,4 +26,6 @@ const Container = styled.h2`
 	+ p {
 		padding-top: 0;
 	}
+
+	border-color: ${({ theme }) => theme.thumbnail};
 `

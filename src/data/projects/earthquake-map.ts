@@ -1,4 +1,4 @@
-import { IProject, FileType, TagType, SkillType, ToolType } from '../IProject'
+import { IProject, FileType, TagType, SkillType, ToolType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/17.jpg'
 const thumbnail2 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/21.jpg'
@@ -23,18 +23,18 @@ export const earthquakeMap: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'A website that mapped worldwide seismic activity that occurred in the past hour, day, week, and month. It also included a rotating list of recent seismic activity, and a comment section for discussion.  The website recorded a lot of interesting information including the underground nuclear tests done in North Korea.',
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'I built and designed the website.  It was connected to a worldwide earthquake feed (no longer available) and I converted the latitude/longitude data I received for each earthquake to the corresponding x/y coordinates for the map I designed.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [
 						SkillType.PHP,
 						SkillType.JavaScript,
@@ -47,7 +47,7 @@ export const earthquakeMap: IProject = {
 					],
 				},
 				{
-					header: 'Tools',
+					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator, ToolType.Photoshop],
 				},
 			],

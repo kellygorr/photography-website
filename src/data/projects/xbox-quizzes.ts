@@ -1,4 +1,4 @@
-import { IProject, FileType, SkillType } from '../IProject'
+import { IProject, FileType, SkillType, HighlightName, SectionName } from '../IProject'
 import { TagType } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/43.jpg'
@@ -70,34 +70,34 @@ export const xboxQuizzes: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'Quizzes on the Xbox One are very popular promotional tools, because they consistently have high user engagement.  Quizzes run as stand-alone promotions or in combination with larger projects (where they still preform very well).',
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'I was tasked with building a quiz template (plugin) that would be used to customize and run Xbox quizzes.  The intro page, question section, and results page were completely customizable, and options included video backgrounds, different result page layouts, and a vertical button layout.  The text fields for the body copy and buttons were flexible enough to accommodate varying text lengths so that a quiz could be translated into multiple languages without having to adjust the layout.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Xbox],
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'March 29, 2015',
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Xbox Programing Team designers',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr',
 				},
 			],
@@ -127,42 +127,42 @@ export const xboxQuizzes: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'This was the first quiz released by Xbox on the Xbox One.  Between projects I had built a quiz prototype, and since my team focused on user engagement they recognized it would be a great promotional tool.  GOT was the perfect opportunity to use a quiz, and I was chosen to build it.  I coded the quiz and collaborated with the project’s designers on the functionality. The quiz was a big success with 90% of users finishing the quiz and over half of those people replaying it.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform and Accessories',
+					header: HighlightName.Platform_Accessories,
 					tags: [TagType.Xbox, TagType.Kinect],
 				},
 				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page and games section',
 				},
 				{
-					header: 'Countries',
-					list: ['United States', 'Canada (EN-CA)'],
+					header: HighlightName.Localization,
+					tags: ['United States', 'Canada (EN-CA)'],
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'May 2015 - June 2015',
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Design Lead',
+					header: HighlightName.Design_Lead,
 					body: 'Todd Bohanna',
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'James Aparis',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr',
 				},
 			],

@@ -1,4 +1,4 @@
-import { IProject, TagType, SkillType } from '../IProject'
+import { IProject, TagType, SkillType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/47.jpg'
 
@@ -43,32 +43,32 @@ export const previewAppLinkGenerator: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'This tool creates a link that is used on the Xbox One to launch and play videos with the Xbox’s video player (the Preview App).  The tool can string together multiple videos to play in a row and add video titles, CTA buttons, and redirect links.',
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.AngularJS, SkillType.JQuery, SkillType.JSON, SkillType.HTML, SkillType.CSS],
 				},
 			],
 			body: "I was in charge of designing and creating the tool.  In the original version I used AngularJS's two-way data binding so the user could live-edit and create the link (This version is available to test below). In the final version I removed the live-edit functionality and instead used a ‘generate link’ button, because I didn't want users to have access to an unfinished link.  Details from the original app have been altered or removed.",
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Web],
 				},
 				{
-					header: 'Designer',
+					header: HighlightName.Designer,
 					body: 'Kelly Gorr',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr',
 				},
 			],

@@ -1,4 +1,4 @@
-import { IProject, FileType, SkillType } from '../IProject'
+import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/55.jpg'
@@ -60,46 +60,46 @@ export const xboxLiveEvents: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'The XLEi app was built by the Xbox Broadcast Service Team and is available on the Xbox One to play live events and video on-demand.  The main feature of the app is the interactive overlays it inserts over the video that lets users make purchases and take polls and quizzes while watching an event.  The app can also be used to create a game that lets users play along with events (and possibly win prizes) by keeping track of the user’s points and showing a leaderboard of the highest scores.',
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: "My role was to build the interactive overlays that were used during the live events.  I was chosen to collaborate with the Broadcast Team because I had built an interactive video playlist (<a href='index.html#interactive_playlist?plugin=project'>featured here</a>) that had similar interactivity.  I built in the animations and functionality of the overlays and hooked up the polls, quizzes, and leaderboards to the Broadcast Team’s database.",
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Xbox],
 				},
 				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page and games section',
 				},
 				{
-					header: 'Countries',
+					header: HighlightName.Localization,
 					body: 'Varies by event',
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: '2014 - 2015',
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Jacqueline Montplaisir',
 				},
 				{
-					header: 'XLEi App and database',
+					header: `${HighlightName.Engineer} - XLEi App and database`,
 					body: 'Xbox Broadcast Service Team',
 				},
 				{
-					header: 'Interaction Design',
+					header: `${HighlightName.Engineer} - Overlays`,
 					body: 'Kelly Gorr',
 				},
 			],
@@ -151,48 +151,48 @@ export const xboxLiveEvents: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'The Game Awards celebrates the best video games of the year.  For the 2015 event it was available to watch live on Xbox One(XLEi), Twitch, Playstation Network, Steam, YouTube, Kotaku, and more.  The XLEi app featured an exclusive game that let viewers play along with the event and it was promoted on YouTube, Twitter, and other media outlets and it was discussed during the live show.',
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'I was in charge of building the interactive game and overlays. During the event players guessed who would win at the beginning each category and they received points based on how fast they answered correctly (once the winner was announced).  Throughout the event an overlay was inserted that showed the top ten highest scoring players, and there was also an overlay that was customized for each player to show them their total points and how fast and accurate they were guessing the winners.  At the end of the event a fullscreen leaderboard was inserted into the live broadcast that allowed users streaming on other devices to see who was at the top of the Xbox leaderboard.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Xbox],
 				},
 				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page and games section',
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'Dec. 3, 2015',
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Jacqueline Montplaisir',
 				},
 				{
-					header: 'XLEi App and database',
+					header: `${HighlightName.Engineer} - XLEi App and database`,
 					body: 'Xbox Broadcast Service Team',
 				},
 				{
-					header: 'Interaction Design',
+					header: `${HighlightName.Engineer} - Overlays`,
 					body: 'Kelly Gorr',
 				},
 			],
 		},
 		{
-			header: 'Hype',
+			header: SectionName.Hype,
 			attachments: [
 				{
 					header: 'Larry Hryb',
@@ -263,38 +263,38 @@ export const xboxLiveEvents: IProject = {
 			},
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'The Xbox Daily Show held two live shows during Gamescom 2015.  I was in charge of building the interactive poll and quiz overlays for the event.  I also built the overlays for the preshow.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Xbox],
 				},
 				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page',
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'June 17, 2015 - June 18, 2015',
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Jacqueline Montplaisir',
 				},
 				{
-					header: 'XLEi App and database',
+					header: `${HighlightName.Engineer} - XLEi App and database`,
 					body: 'Xbox Broadcast Service Team',
 				},
 				{
-					header: 'Interaction Design',
+					header: `${HighlightName.Engineer} - Overlays`,
 					body: 'Kelly Gorr',
 				},
 			],
@@ -314,38 +314,38 @@ export const xboxLiveEvents: IProject = {
 			},
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'The Xbox Daily Show held three live shows during E3 2015.  I was in charge of building the interactive poll and quiz overlays for the event.  Some polls influenced what was presented during the show.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Xbox],
 				},
 				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page',
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'June 17, 2015 - June 18, 2015',
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Jacqueline Montplaisir',
 				},
 				{
-					header: 'XLEi App and database',
+					header: `${HighlightName.Engineer} - XLEi App and database`,
 					body: 'Xbox Broadcast Service Team',
 				},
 				{
-					header: 'Interaction Design',
+					header: `${HighlightName.Engineer} - Overlays`,
 					body: 'Kelly Gorr',
 				},
 			],
@@ -372,38 +372,38 @@ export const xboxLiveEvents: IProject = {
 			},
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'This was the debut of the interactive overlays on the XLEi.  I was in charge of building the preshow polls.  Once the user made a selection the poll and numbers animated to show the live results.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Xbox],
 				},
 				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page',
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'March 29, 2015',
 				},
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Efus Richman',
 				},
 				{
-					header: 'XLEi App and database',
+					header: `${HighlightName.Engineer} - XLEi App and database`,
 					body: 'Xbox Broadcast Service Team',
 				},
 				{
-					header: 'Interaction Design',
+					header: `${HighlightName.Engineer} - Overlays`,
 					body: 'Kelly Gorr',
 				},
 			],

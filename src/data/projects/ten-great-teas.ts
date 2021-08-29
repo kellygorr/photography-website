@@ -1,4 +1,4 @@
-import { IProject, TagType, ToolType } from '../IProject'
+import { HighlightName, IProject, SectionName, TagType, ToolType } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/2.jpg'
 
@@ -34,14 +34,14 @@ export const tenGreatTeas: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'Interface design for an interactive tea map for Tazo tea.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Tools',
+					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator],
 				},
 			],

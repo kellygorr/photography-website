@@ -33,19 +33,17 @@ const Container = styled.div`
 	}
 `
 
-const Logo = styled.h1``
+const Logo = styled.h1`
+	font-size: 2rem;
+`
 const StyledLink = styled(Link)`
-	font-size: 1em;
 	font-family: 'montserrat';
-	padding: 5px;
 	border: 3px solid transparent;
 	transition: color 100ms ease-in;
 
 	&:hover {
 		color: ${({ theme }) => theme.accent};
+		text-decoration: none;
 	}
 `
-const H2 = styled.h2`
-	padding-top: 8px;
-	font-size: 0.9em;
-`
+const H2 = styled.h2``

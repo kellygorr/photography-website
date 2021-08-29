@@ -1,4 +1,4 @@
-import { IProject, ToolType, SkillType } from '../IProject'
+import { IProject, ToolType, SkillType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/26.jpg'
 
@@ -30,23 +30,23 @@ export const welcomeEmails: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'These are welcome emails that I built and designed for an email marketing drip program. They were compatible with multiple devices and email programs. The body copy in the images has been altered from the original version.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Tools',
+					header: HighlightName.Tools,
 					tags: [ToolType.Photoshop],
 				},
 				{
-					header: 'Images',
-					body: 'istockphoto.com',
+					header: HighlightName.Assets,
+					link: 'istockphoto.com',
 				},
 			],
 		},

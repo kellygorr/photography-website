@@ -2,27 +2,18 @@ import * as React from 'react'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { SearchIcon } from '../../assets/svg/SearchIcon'
-import { MEDIUM_SCREEN, SIDE_GAP } from '../../styles/GlobalStyles'
 import { SkillType, TagType, ToolType } from '../../data/IProject'
 import { useHistory } from 'react-router-dom'
-import { SanatizePath, Sanatize } from '../shared'
+import { SanatizePath, Sanatize, Sidebar } from '../shared'
+import { SIDE_GAP } from '../../styles/GlobalStyles'
 
 interface ISearchProps {
 	query: string
 	setQuery: (query: string) => void
-	isOpen: boolean
-	setIsOpen: (isOpen: boolean) => void
+	isSearching: boolean
+	isSmallScreen: boolean
+	setIsSearching: (isOpen: boolean) => void
 	pathname: string
-}
-
-const searchBar = {
-	open: { width: '100%' },
-	closed: {
-		width: 'auto',
-		transition: {
-			delay: 0.1,
-		},
-	},
 }
 
 const ideas = {
@@ -47,11 +38,10 @@ const ideasList = [SkillType.React, TagType.Tooling, ToolType.Photoshop]
 export const SearchBar = (props: ISearchProps): JSX.Element => {
 	const ref = React.useRef<HTMLInputElement>()
 	const history = useHistory()
-
 	const [triggerContent, setTriggerContent] = React.useState('closed')
 
 	React.useEffect(() => {
-		if (props.isOpen) {
+		if (props.isSearching) {
 			ref.current.focus()
 		} else {
 			setTriggerContent('closed')
@@ -60,7 +50,7 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 	}, [props])
 
 	const handleSearchClick = () => {
-		props.setIsOpen(!props.isOpen)
+		props.setIsSearching(!props.isSearching)
 	}
 
 	const handleIdeaClick = (item: string) => {
@@ -83,20 +73,19 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 
 	return (
 		<Container>
-			<SearchBarWrapper>
-				<AnimateSearchBar
-					variants={searchBar}
-					initial={false}
-					animate={props.isOpen ? 'open' : 'closed'}
-					onAnimationComplete={(x) => setTriggerContent(x.toString())}
-				>
-					<SearchButton onClick={handleSearchClick}>
-						<SearchIcon />
-					</SearchButton>
-					{props.isOpen && <Input ref={ref} onKeyDown={handleKeyDown} defaultValue={props.query} />}
-				</AnimateSearchBar>
-			</SearchBarWrapper>
-			{props.isOpen && (
+			<Sidebar
+				isOpen={props.isSearching || props.isSmallScreen}
+				setIsOpen={props.setIsSearching}
+				isSmallScreen={props.isSmallScreen}
+				onClick={!props.isSearching ? handleSearchClick : null}
+				onAnimationComplete={(x) => setTriggerContent(x)}
+			>
+				<SearchButton onClick={handleSearchClick}>
+					<SearchIcon />
+				</SearchButton>
+				{props.isSearching && <Input ref={ref} onKeyDown={handleKeyDown} defaultValue={props.query} />}
+			</Sidebar>
+			{props.isSearching && (
 				<AnimateIdeas variants={ideas} animate={triggerContent}>
 					{ideasList.map((item) => (
 						<AnimateIdea key={item} variants={idea} onClick={() => handleIdeaClick(item)}>
@@ -113,69 +102,35 @@ const UpdatePathQuery = (path: string, query: string) => {
 	return `${SanatizePath(path)}?q=${Sanatize(query)}`
 }
 
-const ICON_SIZE = 55
-
 const Container = styled.div`
 	position: absolute;
-	top: 150px;
+	top: 135px;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	padding-left: ${SIDE_GAP};
-	padding-right: ${SIDE_GAP};
 	z-index: 1000;
-	color: ${({ theme }) => theme.footerText};
-
-	transition: padding-right 200ms ease-out;
-
-	@media (min-width: ${MEDIUM_SCREEN}px) {
-		padding-right: 0;
-	}
-`
-const SearchBarWrapper = styled.div`
-	display: flex;
-	justify-content: flex-end;
-`
-const AnimateSearchBar = styled(motion.div)`
-	display: flex;
-	height: 40px;
-	border-radius: 5px;
-	padding: 5px;
-
-	background-color: ${({ theme }) => theme.footerBackground};
-
-	transition: border-radius 200ms ease-out, padding 200ms ease-out;
-
-	@media (min-width: ${MEDIUM_SCREEN}px) {
-		padding-right: ${SIDE_GAP};
-		border-radius: 5px 0 0 5px;
-	}
 `
 
-const SearchButton = styled.button`
+const SearchButton = styled.div`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	width: ${ICON_SIZE}px;
-	min-width: ${ICON_SIZE}px;
+
 	svg {
 		width: 23px;
 		height: 23px;
-		path {
-			fill: ${({ theme }) => theme.footerText};
-		}
 	}
 `
 
 const Input = styled.input`
+	height: 100%;
 	width: 100%;
 	background-color: transparent;
 	border: 0;
 	text-align: center;
-	color: ${({ theme }) => theme.footerText};
-	margin-right: ${ICON_SIZE}px;
+	margin-left: calc(${SIDE_GAP} - 23px - 10px);
 `
 
 const AnimateIdeas = styled(motion.div)`
@@ -199,5 +154,6 @@ const AnimateIdea = styled(motion.div)`
 	width: 150px;
 	border-radius: 5px;
 
-	background-color: ${({ theme }) => theme.footerBackground};
+	color: ${({ theme }) => theme.sidebarText};
+	background-color: ${({ theme }) => theme.sidebarBackground};
 `

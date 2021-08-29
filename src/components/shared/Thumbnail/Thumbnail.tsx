@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
 import { IThumbnail } from '../../../data/IProject'
-import { AnimateIn, GRID_GAP, SMALL_SCREEN } from '../../../styles/GlobalStyles'
+import { AnimateIn, SMALL_SCREEN } from '../../../styles/GlobalStyles'
 import { GetPageName, Tags } from '..'
 import { useInView } from 'react-intersection-observer'
+import { LinkWrapper } from './LinkWrapper'
 
 interface IThumbnailProps {
 	data: IThumbnail
@@ -11,12 +11,15 @@ interface IThumbnailProps {
 	style?: React.CSSProperties
 	setQuery: (query: string) => void
 	thumbnailClick?: () => void
+	showFull?: boolean
 }
 
-export const Thumbnail: React.FC<IThumbnailProps> = (props: IThumbnailProps) => {
+export const Thumbnail = (props: IThumbnailProps): JSX.Element => {
 	const { data, style, hideTags } = props
 	const link = data.file ? data.file.source : `/page/${GetPageName(data.header)}`
-	const thumbnailStyle: React.CSSProperties = !data.thumbnail ? { pointerEvents: 'none' } : {}
+	const thumbnailStyle: React.CSSProperties = !data.thumbnail
+		? { pointerEvents: 'none' }
+		: { alignItems: props.showFull ? 'flex-start' : 'center' }
 
 	const [ref, inView] = useInView({
 		/* Optional options */
@@ -26,42 +29,43 @@ export const Thumbnail: React.FC<IThumbnailProps> = (props: IThumbnailProps) => 
 
 	return (
 		<Container ref={ref} style={{ ...thumbnailStyle, ...style }} aria-hidden={!data.thumbnail}>
-			<LinkStyle>
-				{data.file ? (
-					<a href={link} target="_blank" rel="noopener noreferrer" onClick={props.thumbnailClick}>
-						<ImageWrapper>{inView && data.thumbnail && <Image src={data.thumbnail} />}</ImageWrapper>
-						<H3>{data.header}</H3>
-					</a>
-				) : (
-					<Link to={link} tabIndex={!data.thumbnail ? -1 : undefined} onClick={props.thumbnailClick}>
-						<ImageWrapper>{inView && data.thumbnail && <Image src={data.thumbnail} />}</ImageWrapper>
-						<H3>{data.header}</H3>
-					</Link>
-				)}
+			<LinkStyle onClick={props.thumbnailClick}>
+				<LinkWrapper link={link} tabIndex={!data.thumbnail ? -1 : undefined}>
+					<ImageWrapper>{inView && data.thumbnail && <Image src={data.thumbnail} />}</ImageWrapper>
+					<H3 style={{ textAlign: props.showFull ? 'start' : 'center' }}>
+						<span>{props.showFull && 'Title:'}</span>
+						{data.header}
+					</H3>
+				</LinkWrapper>
 			</LinkStyle>
-
-			{data.tags && !hideTags && <Tags tags={data.tags} setQuery={props.setQuery} />}
+			<Details>
+				<span>{props.showFull && 'Details: '}</span>
+				{data.tags && !hideTags && <Tags tags={data.tags} setQuery={props.setQuery} />}
+			</Details>
+			{props.showFull &&
+				data.highlights &&
+				data.highlights.map((highlight, index) => (
+					<Details key={index}>
+						<span>{highlight.header}: </span>
+						{highlight.tags && !hideTags && <Tags tags={highlight.tags} setQuery={props.setQuery} />}
+					</Details>
+				))}
 		</Container>
 	)
 }
 
 const Container = styled.li`
 	display: flex;
-	align-items: center;
 	flex-direction: column;
-
-	padding: ${GRID_GAP / 2}px 0;
-
-	@media (min-width: ${SMALL_SCREEN}px) {
-		padding: ${GRID_GAP / 2}px 1.5%;
-	}
+	line-height: 1.5rem;
 `
 
-export const ImageWrapper = styled.div`
+const ImageWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+	margin-bottom: 5px;
 	overflow: hidden;
 	background-color: ${({ theme }) => theme.thumbnail};
 	border: 3px solid transparent;
@@ -69,29 +73,34 @@ export const ImageWrapper = styled.div`
 	transition: border-color 100ms ease-in;
 `
 const Image = styled.img`
-	height: 100%;
-	min-height: 160px;
+	height: 200px;
+	min-height: 200px;
 	opacity: 0;
 	animation: 1s ease-out 0.5s ${AnimateIn};
 	animation-fill-mode: forwards;
-
 	width: 100%;
 	object-fit: cover;
+
+	@media (min-width: ${SMALL_SCREEN}px) {
+		height: 100%;
+	}
 `
 
-export const H3 = styled.h3`
-	width: 100%;
-	text-align: center;
-	padding-top: 8px;
-	font-size: 1em;
+const H3 = styled.h3`
 	font-family: 'Museo_Slab_500_2';
 	transition: color 100ms ease-in;
+
+	span {
+		padding-right: 5px;
+	}
 `
 
 const LinkStyle = styled.div`
+	width: 100%;
 	a {
 		&:hover,
 		&:focus {
+			text-decoration: none;
 			${ImageWrapper} {
 				border-color: ${({ theme }) => theme.accent};
 			}
@@ -99,5 +108,12 @@ const LinkStyle = styled.div`
 				color: ${({ theme }) => theme.accent};
 			}
 		}
+	}
+`
+const Details = styled.div`
+	display: flex;
+
+	> span {
+		padding-right: 5px;
 	}
 `

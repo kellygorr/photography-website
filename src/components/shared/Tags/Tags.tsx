@@ -9,7 +9,7 @@ interface IThumbnailProps {
 	setQuery: (query: string) => void
 }
 
-export const Tags: React.FC<IThumbnailProps> = (props: IThumbnailProps) => {
+export const Tags = (props: IThumbnailProps): JSX.Element => {
 	return (
 		<TagWrapper aria-hidden>
 			{props.tags.map((tag, index) => (

@@ -1,4 +1,4 @@
-import { IProject, FileType, TagType, SkillType, ToolType } from '../IProject'
+import { IProject, FileType, TagType, SkillType, ToolType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/5.jpg'
 
@@ -26,18 +26,18 @@ export const jewelBoxCafe: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'Website redesign and navigation demo.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Tools',
+					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator],
 				},
 			],

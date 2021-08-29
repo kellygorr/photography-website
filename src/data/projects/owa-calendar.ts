@@ -1,4 +1,4 @@
-import { IProject, TagType, SkillType, FileType } from '../IProject'
+import { IProject, TagType, SkillType, FileType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/71.jpg'
 const thumbnail2 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/72.jpg'
@@ -48,7 +48,7 @@ export const owaCalendar: IProject = {
 			},
 		},
 		{
-			header: 'URLs',
+			header: SectionName.URL,
 
 			body: 'Outlook Calendar (subscription required) <br /> <a href="https://outlook-sdf.office.com/calendar/">https://outlook-sdf.office.com/calendar/</a>',
 		},
@@ -57,10 +57,10 @@ export const owaCalendar: IProject = {
 		},
 
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.TypeScript, SkillType.React, SkillType.Fabric, SkillType.HTML, SkillType.CSS, SkillType.Prototyping],
 				},
 			],
@@ -82,36 +82,36 @@ export const owaCalendar: IProject = {
 			body: `To introduce users to the new Quick Compose feature I built the Lightning component that was displayed the first time the user enters their calendar after the feature was launched.`,
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
+					header: HighlightName.Platform,
 					tags: [TagType.Web],
 				},
 				{
-					header: 'Featured In',
+					header: HighlightName.Featured_On,
 					body: 'Outlook Calendar (OWA)',
 				},
 				{
-					header: 'Countries',
-					list: ['Worldwide'],
+					header: HighlightName.Localization,
+					tags: ['Worldwide'],
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: '2018',
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Suz Tocco, Justin Pae',
 				},
 				{
-					header: 'Engineering',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr, Calendar Team, Calendar Capture Team',
 				},
 			],
 		},
 		{
-			header: 'Hype',
+			header: SectionName.Hype,
 			attachments: [
 				{
 					header: 'The Verge',

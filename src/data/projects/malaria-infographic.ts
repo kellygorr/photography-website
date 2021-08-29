@@ -1,4 +1,4 @@
-import { IProject, FileType, TagType, ToolType } from '../IProject'
+import { IProject, FileType, TagType, ToolType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/4.jpg'
 const thumbnail2 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/19.jpg'
@@ -24,14 +24,14 @@ export const malariaInfographic: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'Malaria infographic design.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Tools',
+					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator],
 				},
 			],

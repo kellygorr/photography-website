@@ -22,6 +22,8 @@ export interface Theme {
 	footerText: string
 	footerBackground: string
 	thumbnail: string
+	sidebarText: string
+	sidebarBackground: string
 }
 
 export const themeLight: Theme = {
@@ -34,6 +36,8 @@ export const themeLight: Theme = {
 	footerText: NeutralColors.white,
 	footerBackground: NeutralColors.gray95,
 	thumbnail: NeutralColors.gray06,
+	sidebarText: NeutralColors.white,
+	sidebarBackground: NeutralColors.gray95,
 }
 
 export const themeDark: Theme = {
@@ -46,4 +50,6 @@ export const themeDark: Theme = {
 	footerText: NeutralColors.white,
 	footerBackground: NeutralColors.gray95,
 	thumbnail: NeutralColors.gray06,
+	sidebarText: NeutralColors.gray85,
+	sidebarBackground: NeutralColors.white,
 }

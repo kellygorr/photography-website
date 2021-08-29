@@ -112,14 +112,10 @@ const Caption = styled.div`
 	justify-content: center;
 	text-align: center;
 	width: 100%;
-	padding: 0px 5%;
 	opacity: 1;
 	transition: opacity linear;
-	min-height: 4em;
 `
 
 const Key = styled.div`
-	font-size: 0.8em;
 	width: 100%;
-	padding: 5px 0;
 `

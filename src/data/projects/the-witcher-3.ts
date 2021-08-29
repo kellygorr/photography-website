@@ -1,4 +1,4 @@
-import { IProject, FileType, SkillType } from '../IProject'
+import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/60.jpg'
@@ -95,48 +95,48 @@ export const theWitcher3: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'This large promotion provided games and content for fans to explore including: trailers and gameplay videos, character/weapon/monster galleries, quizzes, and a poll.  A pre-launch version ran before The Witcher 3 was released and a post-launch version ran that added new videos, content and games.',
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.UIUX, SkillType.JQuery, SkillType.JavaScript, SkillType.Ajax, SkillType.HTML, SkillType.CSS],
 				},
 			],
 			body: 'I was responsible for building the entire promotion, excluding the hunt section (built by a teammate).  This involved working through the UX of the main sections, galleries, and games with designers to ensure that the promotion would be easy to navigate on the Xbox, and to establish all the functionality I would need to code.  I built the promotion to be compatible with the Xbox controller and the Xbox Kinect (voice and gesture), and I also implemented custom user data tracking.  After building the promotion I added all the localized assets (videos, images, sound), and text for the other regions.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform and Accessories',
+					header: HighlightName.Platform_Accessories,
 					tags: [TagType.Xbox, TagType.Kinect],
 				},
 				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page and games section',
 				},
 				{
-					header: 'Countries',
-					list: ['United States', 'Canada (EN-CA & FR-CA)', 'United Kingdom', 'Mexico', 'Brazil', 'France', 'Spain', 'Germany'],
+					header: HighlightName.Localization,
+					tags: ['United States', 'Canada (EN-CA & FR-CA)', 'United Kingdom', 'Mexico', 'Brazil', 'France', 'Spain', 'Germany'],
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'May 2015 - June 2015',
 				},
 				{
-					header: 'Design Lead',
+					header: HighlightName.Design_Lead,
 					body: 'Karlo Reyes',
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Annie Marten & Eric Embry',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr & Jana Sheehan',
 				},
 			],

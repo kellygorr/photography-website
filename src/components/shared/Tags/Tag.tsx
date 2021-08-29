@@ -7,7 +7,7 @@ interface ITagProps {
 	setQuery: (query: string) => void
 }
 
-export const Tag: React.FC<ITagProps> = (props: ITagProps) => {
+export const Tag = (props: ITagProps): JSX.Element => {
 	const { isLastTag, tag } = props
 	const tagName = tag === 'UI-UX' ? 'UI/UX' : tag
 
@@ -30,10 +30,11 @@ const TagButton = styled.span`
 	cursor: pointer;
 	width: 100%;
 	padding-top: 3px;
-	text-align: center;
 	font-size: 0.9em;
+	text-align: center;
 
 	&:hover {
+		cursor: pointer;
 		text-decoration: underline;
 	}
 `

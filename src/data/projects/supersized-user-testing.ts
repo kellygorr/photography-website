@@ -1,4 +1,4 @@
-import { IProject, FileType, ToolType } from '../IProject'
+import { IProject, FileType, ToolType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/23.jpg'
 
@@ -41,14 +41,14 @@ export const supersizedUserTesting: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'I designed a CMS for the Supersized! slideshow plugin and conducted small-scale user testing to test the interface. The full document with methods and conclusions is available below.  In part 1, volunteers experience the interface through a paper prototype, and the results are used to create an updated digital prototype that is used for testing in part 2.<br/>View the PDF below to see the full methods and conclusions.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Tools',
+					header: HighlightName.Tools,
 					tags: [ToolType.InDesign],
 				},
 			],

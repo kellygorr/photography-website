@@ -1,4 +1,4 @@
-import { IProject, FileType } from '../IProject'
+import { IProject, FileType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/66.jpg'
 
@@ -75,26 +75,26 @@ export const interactiveVideoPlaylist: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: 'Xbox Interactive is a JavaScript app that creates an interactive video playlist. It plays through videos that are customized with interactive pop-in content that have timed appearances throughout the video. The content can be trivia, quizzes, polls, and more. One use for this tool could be timing pop-in content over a single video, or it could be used to create a video playlist.',
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'Before building the app I created prototypes that broke down some of the key functionality.  Afterwards I started making the app while working with team designers to put together a large-scale project that would show off all the capabilities of the new technology.  The idea was to have a monthly show on the Xbox where users could watch music videos and viral content that were popular during the month.  The users could purchase the videos, learn interesting facts about them, and play along with polls and quizzes.  For the first show we created a playlists of summer videos.  With the finished app I organized the videos, created the pop-in content (each with custom effects and styles), and added a timestamp to each piece of pop-in content to mark where each would appear over the videos (I built the app to also allow for the timing of the content to be automated).  The project was completed but never launched on the Xbox.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform and Accessories',
+					header: HighlightName.Platform_Accessories,
 					tags: [TagType.Xbox, TagType.Kinect],
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Bruce Warren & Jacqueline Montplaisir',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr',
 				},
 			],
@@ -127,38 +127,34 @@ export const interactiveVideoPlaylist: IProject = {
 			},
 		},
 		{
-			header: 'Overview',
+			header: SectionName.Overview,
 			body: "For the premiere of Slipknot's music video, for ‘The Devil In I’, Xbox wanted to give fans a unique experience.  Our team decided to use the interactive video playlist app that I built to add facts, quizzes, and polls, over the music video.  The team had five days to come up with questions, design the project, and decide how the content should be spaced over the video.  I used the app to organize the videos, and create and style the content (polls/quizzes/facts).",
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Platform',
-					tags: [TagType.Xbox],
+					header: HighlightName.Platform_Accessories,
+					tags: [TagType.Xbox, TagType.Kinect],
 				},
 				{
-					header: 'Accessories',
-					tags: [TagType.Kinect],
-				},
-				{
-					header: 'Featured On',
+					header: HighlightName.Featured_On,
 					body: 'Xbox One dashboard home page and music section',
 				},
 				{
-					header: 'Countries',
-					list: ['United States', 'Canada (EN-CA)'],
+					header: HighlightName.Localization,
+					tags: ['United States', 'Canada (EN-CA)'],
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'Sept. 2014',
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'James Aparis',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr',
 				},
 			],

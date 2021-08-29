@@ -1,9 +1,10 @@
 import styled from 'styled-components/macro'
-import { motion } from 'framer-motion'
 import { IHighlight, ILink } from '../../data/IProject'
-import { CogIcon } from '../../assets/svg/CogIcon'
-import { CogFilledIcon } from '../../assets/svg/CogFilledIcon'
-import { BOTTOM_GAP, MEDIUM_SCREEN, SIDE_GAP } from '../../styles/GlobalStyles'
+
+import { SIDE_GAP, SMALL_SCREEN } from '../../styles/GlobalStyles'
+import { NeutralColors } from '../../styles/theme'
+import { Sidebar } from '../shared'
+import { SettingsButton } from './SettingsButton'
 
 const list: IHighlight[] = [
 	{
@@ -33,69 +34,42 @@ const list: IHighlight[] = [
 interface IFooterProps {
 	isDarkMode: boolean
 	toggleDarkMode: () => void
-	setQuery: (query: string) => void
-}
-
-const cog1 = {
-	darkMode: { rotate: -150 },
-	lightMode: { rotate: 0 },
-}
-
-const cog2 = {
-	darkMode: { rotate: 0, x: -12, y: -10 },
-	lightMode: { rotate: -270, x: -12, y: -10 },
+	isSmallScreen: boolean
 }
 
 export const Footer = (props: IFooterProps): JSX.Element => (
 	<Container>
-		<Left>
-			<List>
-				{list.map((item: IHighlight) => (
-					<ListItem key={item.header}>
-						<StyledLink href={(item.link as ILink).link} rel="noopener noreferrer" target="_blank">
-							<Title>{item.header}</Title>
-							{(item.link as ILink).title}
-						</StyledLink>
-					</ListItem>
-				))}
-			</List>
-		</Left>
-		<Right>
-			<Settings>
-				<SettingsButton onClick={props.toggleDarkMode}>
-					<AnimateCog
-						variants={cog1}
-						initial={false}
-						animate={props.isDarkMode ? 'darkMode' : 'lightMode'}
-						transition={{ duration: 1 }}
-						style={{ scale: 0.8 }}
-					>
-						<CogIcon />
-					</AnimateCog>
-
-					<AnimateCog
-						variants={cog2}
-						initial={false}
-						animate={props.isDarkMode ? 'darkMode' : 'lightMode'}
-						transition={{ duration: 1 }}
-						style={{ scale: 0.4 }}
-					>
-						<CogFilledIcon />
-					</AnimateCog>
-				</SettingsButton>
-			</Settings>
-		</Right>
+		<Sidebar
+			isOpen={false}
+			isSmallScreen={props.isSmallScreen}
+			setIsOpen={null}
+			onClick={props.toggleDarkMode}
+			style={{
+				backgroundColor: NeutralColors.gray85,
+			}}
+		>
+			<SettingsButton isDarkMode={props.isDarkMode} />
+		</Sidebar>
+		<List>
+			{list.map((item: IHighlight) => (
+				<ListItem key={item.header}>
+					<StyledLink href={(item.link as ILink).link} rel="noopener noreferrer" target="_blank">
+						<Header>{item.header}</Header>
+						<URL>{(item.link as ILink).title}</URL>
+					</StyledLink>
+				</ListItem>
+			))}
+		</List>
 	</Container>
 )
 
 const Container = styled.footer`
-	display: flex;
-	flex-wrap: wrap-reverse;
-	flex-direction: column-reverse;
 	width: 100%;
-	padding: 30px ${SIDE_GAP} ${BOTTOM_GAP} ${SIDE_GAP};
+	padding: 30px 0;
 	color: ${({ theme }) => theme.footerText};
-	font-size: 0.9em;
+	line-height: 1.5rem;
+	font-size: 0.9rem;
+
 	background-color: ${({ theme }) => theme.footerBackground};
 	transition: background 0.5s ease-in;
 
@@ -114,83 +88,47 @@ const Container = styled.footer`
 		transition: background 0.5s ease-in;
 	}
 
-	*:focus {
+	*:focus a:after {
 		border-color: ${({ theme }) => theme.footerText};
-	}
-
-	@media (min-width: ${MEDIUM_SCREEN}px) {
-		flex-direction: row;
-	}
-`
-const Left = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	width: 100%;
-`
-
-const Right = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	align-items: center;
-
-	@media (min-width: ${MEDIUM_SCREEN}px) {
-		align-items: initial;
 	}
 `
 
 const List = styled.ul`
-	display: flex;
-	flex-direction: column;
+	padding: 0 ${SIDE_GAP};
+	padding-top: 30px;
+	transition: padding 0.5s ease-out;
+	@media (min-width: ${SMALL_SCREEN}px) {
+		padding-top: 0px;
+	}
 `
 
 const ListItem = styled.li`
 	display: flex;
-	flex-direction: column;
+	margin-bottom: 15px;
 `
-const Title = styled.div`
-	&:first-child {
-		margin: 0;
-	}
-`
+
+const Header = styled.div``
+const URL = styled.span``
+
 const StyledLink = styled.a`
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	padding: 8px;
-	border: 2px solid transparent;
-`
-
-const Settings = styled.div`
-	display: flex;
-	justify-content: flex-end;
-`
-
-const SettingsButton = styled.button`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 45px;
-	width: 100%;
-	padding: 20px;
-
-	border-radius: 8px;
-	border: 2px solid transparent;
-	transition: width 200ms ease-out;
-
-	@media (min-width: ${MEDIUM_SCREEN}px) {
-		width: auto;
-		padding: 3px 10px 0 10px;
-		justify-content: initial;
+	&:after {
+		content: ' ';
+		position: absolute;
+		top: -5px;
+		left: -15px;
+		right: -7px;
+		bottom: -5px;
+		transition: border-color 100ms ease-in, left 100ms ease-in;
+		border-left: 2px solid transparent;
 	}
-`
-const AnimateCog = styled(motion.div)`
-	width: 30px;
-	height: 30px;
-	svg {
-		path {
-			fill: ${({ theme }) => theme.footerText};
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+
+		&:after {
+			left: -7px;
+			border-color: ${({ theme }) => theme.footerText};
 		}
 	}
 `

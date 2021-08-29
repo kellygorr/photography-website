@@ -61,6 +61,7 @@ export enum SectionType {
 	Highlight = 'highlight',
 	Attachments = 'attachments',
 	Link = 'link',
+	Tags = 'tags',
 }
 
 export enum FileType {
@@ -70,13 +71,38 @@ export enum FileType {
 	Link,
 }
 
+export enum SectionName {
+	Accessibility = 'Accessibility',
+	Details = 'Details',
+	Hype = 'Hype',
+	Overview = 'Overview',
+	Role = 'Role',
+	URL = 'URL',
+}
+
+export enum HighlightName {
+	Assets = 'Assets',
+	Designer = 'Designer(s)',
+	Design_Lead = 'Design Lead',
+	Dates = 'Dates',
+	Engineer = 'Engineer(s)',
+	Featured_On = 'Featured On',
+	Illustrator = 'Illustrator',
+	Localization = 'Localization',
+	Motion = 'Motion',
+	Platform = 'Platform',
+	Platform_Accessories = 'Platform and Accessories',
+	Skills = 'Skills',
+	Tools = 'Tools',
+}
+
 export interface IProject {
 	details: IThumbnail
 	content?: ISection[]
 }
 
 export interface ISection {
-	header?: string
+	header?: SectionName | string
 	slideshow?: ISlideshow
 	body?: string
 	highlight?: IHighlight[]
@@ -96,9 +122,8 @@ export interface ISlide {
 }
 
 export interface IHighlight {
-	header: string
+	header: HighlightName | string
 	tags?: (TagType | SkillType | ToolType | string)[]
-	list?: string[]
 	body?: string
 	link?: string | ILink
 }
@@ -118,4 +143,5 @@ export interface IThumbnail {
 	thumbnail: string | null
 	file?: IFile
 	tags?: (TagType | string)[]
+	highlights?: IHighlight[]
 }

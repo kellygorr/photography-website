@@ -1,4 +1,4 @@
-import { IProject, FileType, SkillType } from '../IProject'
+import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 
 const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/49.jpg'
@@ -44,44 +44,44 @@ export const starWars: IProject = {
 			},
 		},
 		{
-			header: 'Role',
+			header: SectionName.Role,
 			body: 'I built a promotion for Star Wars that included a home page, slideshow, and promotional offer billboard. I also added all the assets and localized text.',
 		},
 		{
-			header: 'Details',
+			header: SectionName.Details,
 			highlight: [
 				{
-					header: 'Skills',
+					header: HighlightName.Skills,
 					tags: [SkillType.JavaScript, SkillType.JQuery, SkillType.HTML, SkillType.CSS],
 				},
 				{
-					header: 'Platform and Accessories',
+					header: HighlightName.Platform_Accessories,
 					tags: [TagType.Xbox, TagType.Kinect],
 				},
 				{
-					header: 'Featured On',
-					body: 'Xbox One dashboard home page, Movie & TV, and Gold Lounge',
+					header: HighlightName.Featured_On,
+					body: 'Xbox One dashboard: home page, Movie & TV, and Gold Lounge',
 				},
 				{
-					header: 'Countries',
-					list: ['United States', 'Canada (EN-CA & FR-CA)', 'United Kingdom', 'Mexico', 'Brazil', 'France', 'Spain', 'Germany'],
+					header: HighlightName.Localization,
+					tags: ['United States', 'Canada (EN-CA & FR-CA)', 'United Kingdom', 'Mexico', 'Brazil', 'France', 'Spain', 'Germany'],
 				},
 				{
-					header: 'Dates',
+					header: HighlightName.Dates,
 					body: 'April 2016',
 				},
 				{
-					header: 'Designer(s)',
+					header: HighlightName.Designer,
 					body: 'Eric Embry',
 				},
 				{
-					header: 'Interaction Design',
+					header: HighlightName.Engineer,
 					body: 'Kelly Gorr & Jana Sheehan',
 				},
 			],
 		},
 		{
-			header: 'Hype',
+			header: SectionName.Hype,
 			attachments: [
 				{
 					header: 'Kotaku article',
