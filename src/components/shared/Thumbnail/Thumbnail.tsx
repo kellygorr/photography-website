@@ -29,17 +29,17 @@ export const Thumbnail = (props: IThumbnailProps): JSX.Element => {
 
 	return (
 		<Container ref={ref} style={{ ...thumbnailStyle, ...style }} aria-hidden={!data.thumbnail}>
-			<LinkStyle onClick={props.thumbnailClick}>
+			<LinkStyle onClick={props.thumbnailClick} style={{ flex: !data.thumbnail ? 1 : 'inherit' }}>
 				<LinkWrapper link={link} tabIndex={!data.thumbnail ? -1 : undefined}>
 					<ImageWrapper>{inView && data.thumbnail && <Image src={data.thumbnail} />}</ImageWrapper>
 					<H3 style={{ textAlign: props.showFull ? 'start' : 'center' }}>
-						<span>{props.showFull && 'Title:'}</span>
+						<span>{props.showFull && 'Project:'}</span>
 						{data.header}
 					</H3>
 				</LinkWrapper>
 			</LinkStyle>
 			<Details>
-				<span>{props.showFull && 'Details: '}</span>
+				<span>{props.showFull && 'Tags: '}</span>
 				{data.tags && !hideTags && <Tags tags={data.tags} setQuery={props.setQuery} />}
 			</Details>
 			{props.showFull &&
@@ -57,11 +57,13 @@ export const Thumbnail = (props: IThumbnailProps): JSX.Element => {
 const Container = styled.li`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	line-height: 1.5rem;
 `
 
 const ImageWrapper = styled.div`
 	display: flex;
+	flex: 1;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
@@ -98,6 +100,10 @@ const H3 = styled.h3`
 const LinkStyle = styled.div`
 	width: 100%;
 	a {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
 		&:hover,
 		&:focus {
 			text-decoration: none;

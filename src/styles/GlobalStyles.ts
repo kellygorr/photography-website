@@ -53,6 +53,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 		border-color: ${({ theme }) => theme.accent};
 
 		&:not(:focus-visible) {
+			outline: 0 !important;
 			border-color: transparent !important;
 		}
 	}

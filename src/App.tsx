@@ -11,16 +11,18 @@ import { SearchBar, SearchResults } from './components/Search'
 import { themeLight, themeDark } from './styles/theme'
 import { SanatizePath, GetPageName, useDarkMode } from './components/shared'
 import { AnimatePresence, motion } from 'framer-motion'
-import { HighlightName, IHighlight, IProject } from './data/IProject'
+import { IProject } from './data/IProject'
 import { useMediaQuery } from './components/shared/hooks/useMediaQuery'
+import { configureProjects } from './components/shared/configureProjects'
+
+const projects: IProject[] = configureProjects(allProjects)
 
 const App = (): JSX.Element => {
 	const location = useLocation()
 	const searchQuery = new URLSearchParams(location.search).get('q')
-	const projects: IProject[] = configureProjects(allProjects)
 	const [isDarkMode, toggleDarkMode] = useDarkMode()
 	const [isSearching, setIsSearching] = React.useState(false)
-	// Let's not use a search page.  Google is indexing search pages, which is not a place I want people to land for the first time
+	// Let's not use a search page.  Google is indexing search pages, and this is not a place I want people to land for the first time
 	const [query, setQuery] = React.useState(searchQuery)
 
 	const isSmallScreen = useMediaQuery(`(max-width: ${SMALL_SCREEN}px)`)
@@ -118,44 +120,6 @@ const App = (): JSX.Element => {
 }
 
 export default App
-
-const configureProjects = (projects: IProject[]): IProject[] => {
-	projects?.forEach((project, index) => {
-		const highlights: IHighlight[] = []
-
-		project?.content?.forEach((section) => {
-			section?.highlight?.forEach((highlight) => {
-				if (highlight.tags && highlight.header !== HighlightName.Localization) {
-					highlights.push(highlight)
-				}
-			})
-		})
-
-		if (highlights) {
-			project.details.highlights = highlights
-		}
-
-		console.log(project.details.header)
-
-		if (index === projects.length - 1) {
-			const result: IHighlight[] = Object.values(
-				project.details.highlights.reduce((c, { header, tags }) => {
-					c[header] = c[header] || { header, tags: [] }
-					c[header].tags = c[header].tags.concat(Array.isArray(tags) ? tags : [tags])
-					return c
-				}, {})
-			)
-
-			if (result) {
-				project.details.highlights = result
-			}
-
-			console.log('result', result)
-		}
-	})
-
-	return projects
-}
 
 const AppContainer = styled.div`
 	display: flex;

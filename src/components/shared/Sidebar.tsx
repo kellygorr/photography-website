@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { SIDE_GAP } from '../../styles/GlobalStyles'
 
 interface ISidebarProps {
+	ariaLabel: string
 	isOpen: boolean
 	isSmallScreen: boolean
 	style?: React.CSSProperties
@@ -41,6 +42,7 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 				animate={props.isOpen || props.isSmallScreen ? 'open' : 'closed'}
 				onAnimationComplete={(x) => props.onAnimationComplete && props.onAnimationComplete(x.toString())}
 				style={sidebarStyles}
+				aria-label={props.ariaLabel}
 			>
 				{props.children}
 			</AnimateSidebar>
@@ -72,4 +74,8 @@ const AnimateSidebar = styled(motion.button)`
 		color: ${({ theme }) => theme.sidebarText};
 	}
 	transition: border-radius 200ms ease-out;
+
+	&:focus {
+		outline: 2px solid ${({ theme }) => theme.accent};
+	}
 `

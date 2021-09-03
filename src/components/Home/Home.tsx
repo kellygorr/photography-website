@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components/macro'
 import { IProject } from '../../data/IProject'
 import { GRID_GAP, GRID_WIDTH, LARGE_SCREEN, SMALL_SCREEN } from '../../styles/GlobalStyles'
+import { NeutralColors } from '../../styles/theme'
 import { RandomBinaryStr, Thumbnail, useRowHook } from '../shared'
 
 interface IHomeProps {
@@ -61,7 +62,7 @@ export const Home = (props: IHomeProps): JSX.Element => {
 							key={project.details.header}
 							data={project.details}
 							style={{
-								opacity: props.isDarkMode ? 0.15 : 0.4,
+								color: NeutralColors.neutral40,
 								transform: `translate3d(${translateX}, 0,0)`,
 							}}
 							hideTags={rowLength < 2}

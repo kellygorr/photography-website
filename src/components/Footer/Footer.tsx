@@ -47,6 +47,7 @@ export const Footer = (props: IFooterProps): JSX.Element => (
 			style={{
 				backgroundColor: NeutralColors.gray85,
 			}}
+			ariaLabel={props.isDarkMode ? 'Set light mode' : 'Set dark mode'}
 		>
 			<SettingsButton isDarkMode={props.isDarkMode} />
 		</Sidebar>

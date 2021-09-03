@@ -4,7 +4,8 @@ export const NeutralColors = {
 	gray85: '#262626',
 	gray81: 'rgba(0,0,0,0.81)',
 	gray11: 'rgba(0,0,0,0.11)',
-	gray06: '#efefef',
+	neutral40: 'rgb(127,127,127, 0.40)',
+	neutral10: 'rgb(127,127,127, 0.10)',
 	white: 'rgba(255,255,255,1)',
 }
 
@@ -19,11 +20,11 @@ export interface Theme {
 	textNegative: string
 	background: string
 	backgroundNegative: string
-	footerText: string
-	footerBackground: string
 	thumbnail: string
 	sidebarText: string
 	sidebarBackground: string
+	footerText: string
+	footerBackground: string
 }
 
 export const themeLight: Theme = {
@@ -33,11 +34,11 @@ export const themeLight: Theme = {
 	textNegative: NeutralColors.white,
 	background: NeutralColors.white,
 	backgroundNegative: NeutralColors.gray85,
-	footerText: NeutralColors.white,
-	footerBackground: NeutralColors.gray95,
-	thumbnail: NeutralColors.gray06,
+	thumbnail: NeutralColors.neutral10,
 	sidebarText: NeutralColors.white,
 	sidebarBackground: NeutralColors.gray95,
+	footerText: NeutralColors.white,
+	footerBackground: NeutralColors.gray95,
 }
 
 export const themeDark: Theme = {
@@ -47,9 +48,9 @@ export const themeDark: Theme = {
 	textNegative: NeutralColors.gray81,
 	background: NeutralColors.gray85,
 	backgroundNegative: NeutralColors.white,
-	footerText: NeutralColors.white,
-	footerBackground: NeutralColors.gray95,
-	thumbnail: NeutralColors.gray06,
+	thumbnail: NeutralColors.neutral10,
 	sidebarText: NeutralColors.gray85,
 	sidebarBackground: NeutralColors.white,
+	footerText: NeutralColors.white,
+	footerBackground: NeutralColors.gray95,
 }

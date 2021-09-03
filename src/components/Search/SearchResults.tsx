@@ -27,8 +27,7 @@ export const SearchResults = (props: ISearchProps): JSX.Element => {
 	const relatedResults: IProjectSearch[] = matches.filter((match) => match.query !== props.query)
 	const relatedResultTags =
 		relatedResults && relatedResults.map((project) => project.query).filter((value, index, self) => self.indexOf(value) === index)
-	console.log('searchResults', searchResults)
-	console.log('relatedResults', relatedResults)
+
 	return (
 		<>
 			{searchResults.length > 0 ? (
@@ -54,12 +53,12 @@ export const SearchResults = (props: ISearchProps): JSX.Element => {
 					</Message>
 				</>
 			)}
-			<Gallery>
-				<Divider />
-			</Gallery>
 
 			{relatedResults.length > 0 && (
 				<>
+					<Gallery>
+						<Divider />
+					</Gallery>
 					<Gallery>
 						<Heading>
 							<span>Related results </span>

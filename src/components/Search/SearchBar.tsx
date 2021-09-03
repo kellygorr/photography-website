@@ -77,13 +77,14 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 				isOpen={props.isSearching || props.isSmallScreen}
 				setIsOpen={props.setIsSearching}
 				isSmallScreen={props.isSmallScreen}
-				onClick={!props.isSearching ? handleSearchClick : null}
+				onClick={handleSearchClick}
 				onAnimationComplete={(x) => setTriggerContent(x)}
+				ariaLabel={props.isSearching ? 'Close search' : 'Open search'}
 			>
-				<SearchButton onClick={handleSearchClick}>
+				<SearchButton>
 					<SearchIcon />
 				</SearchButton>
-				{props.isSearching && <Input ref={ref} onKeyDown={handleKeyDown} defaultValue={props.query} />}
+				{props.isSearching && <Input ref={ref} onKeyDown={handleKeyDown} aria-label={'Search field'} defaultValue={props.query} />}
 			</Sidebar>
 			{props.isSearching && (
 				<AnimateIdeas variants={ideas} animate={triggerContent}>
@@ -113,6 +114,7 @@ const Container = styled.div`
 
 const SearchButton = styled.div`
 	cursor: pointer;
+	pointer-events: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
