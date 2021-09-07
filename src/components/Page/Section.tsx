@@ -8,7 +8,7 @@ import { Tags, Thumbnail } from '../shared'
 import { Heading } from '.'
 
 interface ISectionProps {
-	type: string
+	type: SectionType
 	data: string | ISlideshow | IThumbnail[] | IHighlight[] | (TagType | SkillType | ToolType | string)[]
 	setQuery: (query: string) => void
 }
@@ -43,7 +43,7 @@ export const Section: React.FC<ISectionProps> = (props: ISectionProps) => (
 				return (
 					<Highlight key={index}>
 						<HighlightHeader>{data.header}</HighlightHeader>
-						{type && <Section type={type} data={data[type]} setQuery={props.setQuery} />}
+						{type && <Section type={type as SectionType} data={data[type]} setQuery={props.setQuery} />}
 					</Highlight>
 				)
 			})}
@@ -58,6 +58,7 @@ const Gallery = styled.div`
 export const Link = styled.a``
 const Highlight = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 `
 const HighlightHeader = styled.h4`
 	padding-right: 10px;

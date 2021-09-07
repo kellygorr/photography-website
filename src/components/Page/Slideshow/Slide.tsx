@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { FileType, ISlide } from '../../../data/IProject'
+import { SMALL_SCREEN } from '../../../styles/GlobalStyles'
 import { AccentColors, NeutralColors } from '../../../styles/theme'
 
 interface IPageProps {
@@ -68,11 +69,11 @@ const Container = styled.div<IStyle>`
 	justify-content: center;
 	align-items: center;
 	margin: 0 5px;
-	width: 75%;
-	min-width: 75%;
+	/* width: 75%; */
+	height: 100%;
 
 	background-color: ${({ theme }) => theme.neutral};
-	border: 3px solid;
+	border: 0;
 	background-clip: padding-box;
 
 	/* snap align center  */
@@ -82,6 +83,15 @@ const Container = styled.div<IStyle>`
 
 	img,
 	video {
-		width: 100%;
+		max-height: 40vh;
+		max-width: calc(100vw - 6px); // room for border
+
+		@media (min-width: ${SMALL_SCREEN}px) {
+			min-height: 350px;
+		}
+	}
+
+	@media (min-width: ${SMALL_SCREEN}px) {
+		border: 3px solid;
 	}
 `

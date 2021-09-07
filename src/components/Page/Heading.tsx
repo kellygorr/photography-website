@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components/macro'
+import { MEDIUM_SMALL_SCREEN } from '../../styles/GlobalStyles'
 interface IPageProps {
 	children?: React.ReactNode
 }
@@ -15,7 +16,7 @@ export const Heading: React.FC<IPageProps> = (props: IPageProps) => {
 const Container = styled.h2`
 	display: flex;
 	font-family: 'Museo_Slab_500_2';
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	line-height: initial;
 
 	&:first-child {
@@ -28,4 +29,8 @@ const Container = styled.h2`
 	}
 
 	border-color: ${({ theme }) => theme.thumbnail};
+
+	@media (min-width: ${MEDIUM_SMALL_SCREEN}px) {
+		font-size: 1.5rem;
+	}
 `

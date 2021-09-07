@@ -154,7 +154,13 @@ const HomeWrapper = styled.div`
 const PageWrapper = styled.div`
 	display: flex;
 	justify-content: center;
-	padding-bottom: ${BOTTOM_GAP};
+
+	padding: 70px 0 ${BOTTOM_GAP} 0;
+	transition: padding 0.5s ease-out;
+
+	@media (min-width: ${LARGE_SCREEN}px) {
+		padding-top: 20px;
+	}
 `
 const ResultsWrapper = styled.div`
 	display: flex;

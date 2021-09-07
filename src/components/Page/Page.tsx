@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components/macro'
-import { ISection } from '../../data/IProject'
+import { ISection, SectionType } from '../../data/IProject'
+import { MEDIUM_SMALL_SCREEN, SIDE_GAP } from '../../styles/GlobalStyles'
 import { Heading } from './Heading'
 import { Section } from './Section'
 interface IPageProps {
@@ -9,18 +10,68 @@ interface IPageProps {
 	setQuery: (query: string) => void
 }
 
+export const MAX_WIDTH = '700px'
+
+const sectionStyle = {
+	padding: `0 ${SIDE_GAP} 1.5rem ${SIDE_GAP}`,
+}
+
+const slideshowStyle = {
+	paddingBottom: `1.5rem`,
+}
+
 export const Page: React.FC<IPageProps> = (props: IPageProps) => (
 	<Container>
-		<Heading>{props.header}</Heading>
+		<SectionPadding style={sectionStyle}>
+			<HeadingWrapper>
+				<Heading>{props.header}</Heading>
+			</HeadingWrapper>
+		</SectionPadding>
+
 		{props.content &&
-			props.content.map((data: ISection) => {
-				const items = Object.entries(data)
-				return items.map((item, index) => <Section key={index} type={item[0]} data={item[1]} setQuery={props.setQuery} />)
+			props.content.map((data: ISection, index) => {
+				const items = Object.entries(data) as ISection[]
+				const type = items[0][0]
+
+				return (
+					<SectionPadding key={index} style={type !== SectionType.Slideshow ? sectionStyle : slideshowStyle}>
+						<SectionWidth style={{ maxWidth: type !== SectionType.Slideshow ? MAX_WIDTH : '' }}>
+							{items.map((item, index) => {
+								return <Section key={index} type={item[0]} data={item[1]} setQuery={props.setQuery} />
+							})}
+						</SectionWidth>
+					</SectionPadding>
+				)
 			})}
 	</Container>
 )
 
 const Container = styled.div`
-	font-size: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.1rem;
 	line-height: 1.9rem;
+	width: 100%;
+
+	h2 {
+		bottom: 0.2rem;
+	}
+
+	@media (min-width: ${MEDIUM_SMALL_SCREEN}px) {
+		font-size: 1.2rem;
+	}
+`
+const HeadingWrapper = styled.div`
+	width: 100%;
+	max-width: ${MAX_WIDTH};
+	margin: 0 auto;
+`
+
+const SectionPadding = styled.div`
+	width: 100%;
+	word-wrap: break-word;
+`
+const SectionWidth = styled.div`
+	margin: 0 auto;
 `

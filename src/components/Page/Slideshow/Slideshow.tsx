@@ -80,6 +80,7 @@ const isElementCentered = (el: HTMLDivElement) => {
 const Slides = styled.div`
 	display: flex;
 	align-items: center;
+	width: 100vw;
 
 	/* Hide scrollbars  */
 	overflow: -moz-scrollbars-none;
@@ -95,13 +96,12 @@ const Slides = styled.div`
 	-webkit-overflow-scrolling: touch;
 
 	/* Space before first slide and after last slide  */
+	/* height % does not work */
 	&:before,
 	&:after {
 		content: ' ';
-		height: 10px; /* % does not work */
-		min-width: 10%;
-		width: 10%;
-		width: 100px;
+		height: 10px;
+		min-width: 50vw;
 	}
 `
 
@@ -112,8 +112,10 @@ const Caption = styled.div`
 	justify-content: center;
 	text-align: center;
 	width: 100%;
+	max-width: 700px;
 	opacity: 1;
 	transition: opacity linear;
+	margin: 0 auto;
 `
 
 const Key = styled.div`
