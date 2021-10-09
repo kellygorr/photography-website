@@ -84,9 +84,17 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 				<SearchButton>
 					<SearchIcon />
 				</SearchButton>
-				{props.isSearching && <Input ref={ref} onKeyDown={handleKeyDown} aria-label={'Search field'} defaultValue={props.query} />}
+				{props.isSearching && (
+					<Input
+						onClick={(e) => e.stopPropagation()}
+						ref={ref}
+						onKeyDown={handleKeyDown}
+						aria-label={'Search field'}
+						defaultValue={props.query}
+					/>
+				)}
 			</Sidebar>
-			{props.isSearching && (
+			{props.isSearching && !props.isSmallScreen && (
 				<AnimateIdeas variants={ideas} animate={triggerContent}>
 					{ideasList.map((item) => (
 						<AnimateIdea key={item} variants={idea} onClick={() => handleIdeaClick(item)}>
@@ -119,6 +127,8 @@ const SearchButton = styled.div`
 	align-items: center;
 	justify-content: center;
 	height: 100%;
+	width: 40px;
+	min-width: 40px;
 
 	svg {
 		width: 23px;
@@ -132,7 +142,7 @@ const Input = styled.input`
 	background-color: transparent;
 	border: 0;
 	text-align: center;
-	margin-left: calc(${SIDE_GAP} - 23px - 10px);
+	padding-right: 40px;
 `
 
 const AnimateIdeas = styled(motion.div)`

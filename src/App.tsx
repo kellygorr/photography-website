@@ -2,7 +2,16 @@ import * as React from 'react'
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components/macro'
 import { allProjects } from './data'
-import { BOTTOM_GAP, GlobalStyles, LARGE_SCREEN, SIDE_GAP, SMALL_SCREEN } from './styles/GlobalStyles'
+import {
+	BOTTOM_GAP,
+	GlobalStyles,
+	LARGE_SCREEN,
+	MEDIUM_SCREEN,
+	MEDIUM_SMALL_SCREEN,
+	SIDE_GAP,
+	SIDE_GAP_SMALL_SCREEN,
+	SMALL_SCREEN,
+} from './styles/GlobalStyles'
 import { Header as HeaderContent } from './components/Header'
 import { Footer } from './components/Footer'
 import { Home } from './components/Home'
@@ -144,8 +153,12 @@ const Canvas = styled.main`
 `
 
 const HomeWrapper = styled.div`
-	padding: 70px ${SIDE_GAP} 8% ${SIDE_GAP};
+	padding: 70px ${SIDE_GAP_SMALL_SCREEN} 8% ${SIDE_GAP_SMALL_SCREEN};
 	transition: padding 0.5s ease-out;
+
+	@media (min-width: ${SMALL_SCREEN}px) {
+		padding: 70px ${SIDE_GAP} 8% ${SIDE_GAP};
+	}
 
 	@media (min-width: ${LARGE_SCREEN}px) {
 		padding: 20px 8% 8% 8%;

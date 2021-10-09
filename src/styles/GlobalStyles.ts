@@ -4,8 +4,11 @@ import { Theme } from './theme'
 
 export const GRID_WIDTH = 350
 export const GRID_GAP = 20
-export const SIDE_GAP = '4vw'
+export const SIDE_GAP = '3vw'
+export const SIDE_GAP_SMALL_SCREEN = '5vw'
 export const BOTTOM_GAP = '40px'
+
+/** SCREEN SIZE */
 export const LARGE_SCREEN = 1366
 export const MEDIUM_SCREEN = 1024
 export const MEDIUM_SMALL_SCREEN = 768

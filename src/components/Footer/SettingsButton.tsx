@@ -48,7 +48,8 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	width: 38px;
+	width: 55px;
+	min-width: 55px;
 	padding-left: 15px;
 `
 const AnimateCog = styled(motion.div)`

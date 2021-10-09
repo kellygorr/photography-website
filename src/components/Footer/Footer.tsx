@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import { IHighlight, ILink } from '../../data/IProject'
 
-import { SIDE_GAP, SMALL_SCREEN } from '../../styles/GlobalStyles'
+import { SIDE_GAP, SIDE_GAP_SMALL_SCREEN, SMALL_SCREEN } from '../../styles/GlobalStyles'
 import { NeutralColors } from '../../styles/theme'
 import { Sidebar } from '../shared'
 import { SettingsButton } from './SettingsButton'
@@ -95,11 +95,11 @@ const Container = styled.footer`
 `
 
 const List = styled.ul`
-	padding: 0 ${SIDE_GAP};
+	padding: 0 ${SIDE_GAP_SMALL_SCREEN};
 	padding-top: 30px;
 	transition: padding 0.5s ease-out;
 	@media (min-width: ${SMALL_SCREEN}px) {
-		padding-top: 0px;
+		padding: 0px ${SIDE_GAP};
 	}
 `
 

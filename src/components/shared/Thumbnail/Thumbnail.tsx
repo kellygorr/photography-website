@@ -38,10 +38,12 @@ export const Thumbnail = (props: IThumbnailProps): JSX.Element => {
 					</H3>
 				</LinkWrapper>
 			</LinkStyle>
-			<Details>
-				<span>{props.showFull && 'Tags: '}</span>
-				{data.tags && !hideTags && <Tags tags={data.tags} setQuery={props.setQuery} />}
-			</Details>
+			{data.tags && !hideTags && (
+				<Details>
+					<span>{props.showFull && 'Tags: '}</span>
+					<Tags tags={data.tags} setQuery={props.setQuery} />
+				</Details>
+			)}
 			{props.showFull &&
 				data.highlights &&
 				data.highlights.map((highlight, index) => (

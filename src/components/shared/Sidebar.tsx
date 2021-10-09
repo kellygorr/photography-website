@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
-import { SIDE_GAP } from '../../styles/GlobalStyles'
+import { SIDE_GAP, SIDE_GAP_SMALL_SCREEN } from '../../styles/GlobalStyles'
 
 interface ISidebarProps {
 	ariaLabel: string
@@ -14,27 +14,28 @@ interface ISidebarProps {
 	children?: React.ReactNode
 }
 
-const sidebar = {
-	open: { width: '100%', marginRight: SIDE_GAP },
-	closed: {
-		marginRight: 0,
-		width: 'auto',
-		paddingRight: SIDE_GAP,
-		transition: {
-			delay: 0.1,
-		},
-	},
-}
-
 export const Sidebar = (props: ISidebarProps): JSX.Element => {
 	const isCentered = props.isSmallScreen || props.isOpen
 	const sidebarStyles: React.CSSProperties = {
 		borderRadius: isCentered ? '5px' : '5px 0 0 5px',
+		marginLeft: props.isSmallScreen ? SIDE_GAP_SMALL_SCREEN : SIDE_GAP,
 		...props.style,
 	}
 
+	const sidebar = {
+		open: { width: '100%', marginRight: props.isSmallScreen ? SIDE_GAP_SMALL_SCREEN : SIDE_GAP },
+		closed: {
+			marginRight: 0,
+			width: 'auto',
+			paddingRight: props.isSmallScreen ? '0px' : '40px',
+			transition: {
+				delay: 0.1,
+			},
+		},
+	}
+
 	return (
-		<Container>
+		<Container key={props.isSmallScreen.toString()}>
 			<AnimateSidebar
 				onClick={props.onClick}
 				variants={sidebar}
@@ -53,13 +54,11 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 const Container = styled.div`
 	display: flex;
 	justify-content: flex-end;
-	padding-left: ${SIDE_GAP};
 `
 const AnimateSidebar = styled(motion.button)`
 	display: flex;
 	justify-content: center;
 	height: 40px;
-	padding-left: 10px;
 	border-radius: 5px;
 	color: ${({ theme }) => theme.sidebarText};
 	background-color: ${({ theme }) => theme.sidebarBackground};
