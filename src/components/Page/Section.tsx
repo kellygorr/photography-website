@@ -6,6 +6,7 @@ import { Body } from './Body'
 import { Slideshow } from './Slideshow/Slideshow'
 import { Tags, Thumbnail } from '../shared'
 import { Heading } from '.'
+import { SMALL_SCREEN } from '../../styles/GlobalStyles'
 
 interface ISectionProps {
 	type: SectionType
@@ -51,8 +52,17 @@ export const Section: React.FC<ISectionProps> = (props: ISectionProps) => (
 )
 
 const Gallery = styled.div`
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: 100%;
+	justify-content: center;
+	grid-gap: 10px;
+	@media (min-width: 500px) {
+		grid-template-columns: repeat(auto-fit, minmax(auto, 400px));
+	}
+
+	@media (min-width: ${SMALL_SCREEN}px) {
+		grid-template-columns: repeat(2, 50%);
+	}
 `
 
 export const Link = styled.a``
