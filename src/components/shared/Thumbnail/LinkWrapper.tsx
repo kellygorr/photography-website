@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 interface ILinkWrapperProps {
-	isExternal?: boolean
+	isExternal: boolean
 	link: string
 	tabIndex?: number
 	children: React.ReactNode

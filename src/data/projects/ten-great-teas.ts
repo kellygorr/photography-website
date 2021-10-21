@@ -1,6 +1,6 @@
 import { HighlightName, IProject, SectionName, TagType, ToolType } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/2.jpg'
+const thumbnail = 'tazo-tea.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/ten-great-teas/large2a.jpg'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/ten-great-teas/large2b.jpg'

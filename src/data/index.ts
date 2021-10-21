@@ -12,7 +12,6 @@ import { previewAppLinkGenerator } from './projects/preview-app-link-generator'
 import { tenGreatTeas } from './projects/ten-great-teas'
 import { earthquakeMap } from './projects/earthquake-map'
 import { malariaInfographic } from './projects/malaria-infographic'
-import { crimeSpot } from './projects/crime-spot'
 import { welcomeEmails } from './projects/welcome-emails'
 import { kMonogram } from './projects/k-monogram'
 import { supersizedUserTesting } from './projects/supersized-user-testing'
@@ -35,7 +34,6 @@ export const allProjects: IProject[] = [
 	tenGreatTeas,
 	earthquakeMap,
 	malariaInfographic,
-	crimeSpot,
 	welcomeEmails,
 	kMonogram,
 	supersizedUserTesting,

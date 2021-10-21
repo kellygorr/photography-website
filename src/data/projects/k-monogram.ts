@@ -1,6 +1,6 @@
-import { HighlightName, IProject, SectionName, ToolType } from '../IProject'
+import { HighlightName, IProject, SectionName, SkillType, ToolType } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/3.jpg'
+const thumbnail = 'monogram.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/k-monogram/large6.jpg'
 
@@ -22,11 +22,15 @@ export const kMonogram: IProject = {
 		},
 		{
 			header: SectionName.Overview,
-			body: 'K monogram design.',
+			body: 'K monogram design',
 		},
 		{
 			header: SectionName.Details,
 			highlight: [
+				{
+					header: HighlightName.Skills,
+					tags: [SkillType.Design],
+				},
 				{
 					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator],

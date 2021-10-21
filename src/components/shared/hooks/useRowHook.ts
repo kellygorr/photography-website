@@ -16,7 +16,8 @@ export const useRowHook = (projectLength: number): [React.MutableRefObject<HTMLU
 				// This gets messy when we switch from auto-fit (floor) to 2 columns (round)
 				const rowLength = width > MEDIUM_SCREEN ? Math.floor(width / childWidth) : Math.round(width / childWidth)
 				setRowLength(rowLength)
-				setOverflowAmount(rowLength - (projectLength % rowLength))
+				const overflow = projectLength % rowLength
+				setOverflowAmount(overflow ? rowLength - (projectLength % rowLength) : overflow)
 			}
 		}
 

@@ -1,7 +1,7 @@
 import { IProject, FileType, SkillType, HighlightName, SectionName } from '../IProject'
 import { TagType } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/43.jpg'
+const thumbnail = 'quizzes.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/xbox-quizzes/quiz7.png'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/xbox-quizzes/quiz8.jpg'

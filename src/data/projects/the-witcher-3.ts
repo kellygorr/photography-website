@@ -1,7 +1,7 @@
 import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/60.jpg'
+const thumbnail = 'witcher3.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/the-witcher-3/witcher2.jpg'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/the-witcher-3/witcher3.jpg'

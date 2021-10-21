@@ -1,9 +1,9 @@
 import { IProject, TagType, SkillType, FileType, SectionName, HighlightName } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/71.jpg'
-const thumbnail2 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/72.jpg'
-const thumbnail3 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/73.jpg'
-const thumbnail4 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/74.jpg'
+const thumbnail = 'outlook-calendar.jpg'
+const thumbnail2 = '72.jpg'
+const thumbnail3 = '73.jpg'
+const thumbnail4 = '74.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/owa-calendar/calendar5.jpg'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/owa-calendar/calendar3.jpg'

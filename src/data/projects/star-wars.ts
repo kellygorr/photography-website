@@ -1,7 +1,7 @@
 import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/49.jpg'
+const thumbnail = 'starwars.jpg'
 
 const video1 = process.env.REACT_APP_IMAGE_URL + 'assets/videos/starWars.mp4'
 

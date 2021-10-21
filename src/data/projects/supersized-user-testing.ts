@@ -1,6 +1,6 @@
-import { IProject, FileType, ToolType, SectionName, HighlightName } from '../IProject'
+import { IProject, FileType, ToolType, SectionName, HighlightName, SkillType } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/23.jpg'
+const thumbnail = 'supersized.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/supersized-user-testing/large22e.jpg'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/supersized-user-testing/large22a.jpg'
@@ -47,6 +47,10 @@ export const supersizedUserTesting: IProject = {
 		{
 			header: SectionName.Details,
 			highlight: [
+				{
+					header: HighlightName.Skills,
+					tags: [SkillType.Design, SkillType.UIUX],
+				},
 				{
 					header: HighlightName.Tools,
 					tags: [ToolType.InDesign],

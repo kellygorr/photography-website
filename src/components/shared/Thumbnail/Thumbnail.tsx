@@ -30,8 +30,21 @@ export const Thumbnail = (props: IThumbnailProps): JSX.Element => {
 	return (
 		<Container ref={ref} style={{ ...thumbnailStyle, ...style }} aria-hidden={!data.thumbnail}>
 			<LinkStyle onClick={props.thumbnailClick} style={{ flex: !data.thumbnail ? 1 : 'inherit' }}>
-				<LinkWrapper link={link} tabIndex={!data.thumbnail ? -1 : undefined}>
-					<ImageWrapper>{inView && data.thumbnail && <Image src={data.thumbnail} />}</ImageWrapper>
+				<LinkWrapper link={link} isExternal={Boolean(data.file)} tabIndex={!data.thumbnail ? -1 : undefined}>
+					<ImageWrapper>
+						{inView && data.thumbnail ? (
+							<Image
+								srcSet={`
+						${process.env.REACT_APP_THUMBNAIL_1x}${data.thumbnail} 1x,
+						${process.env.REACT_APP_THUMBNAIL_15x}${data.thumbnail} 1.5x,
+						${process.env.REACT_APP_THUMBNAIL_2x}${data.thumbnail} 2x,
+					`}
+								src={process.env.REACT_APP_THUMBNAIL_1x + data.thumbnail}
+							/>
+						) : (
+							<Blank />
+						)}
+					</ImageWrapper>
 					<H3 style={{ textAlign: props.showFull ? 'start' : 'center' }}>
 						<span>{props.showFull && 'Project:'}</span>
 						{data.header}
@@ -124,4 +137,8 @@ const Details = styled.div`
 	> span {
 		padding-right: 5px;
 	}
+`
+const Blank = styled.div`
+	width: 600px;
+	height: 200px;
 `

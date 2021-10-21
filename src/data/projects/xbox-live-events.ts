@@ -1,9 +1,9 @@
 import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/55.jpg'
-const thumbnail6 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/67.jpg'
-const thumbnail7 = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/68.jpg'
+const thumbnail = 'xlei.jpg'
+const thumbnail6 = '67.jpg'
+const thumbnail7 = '68.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/xbox-live-events/xlei1.png'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/xbox-live-events/E32.jpg'

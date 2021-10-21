@@ -1,6 +1,6 @@
 import { IProject, FileType, SectionName, HighlightName } from '../IProject'
 import { TagType } from '../IProject'
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/66.jpg'
+const thumbnail = 'summer.jpg'
 
 // const video1 = process.env.REACT_APP_IMAGE_URL + 'assets/videos/summerME.mp4'
 const video2 = process.env.REACT_APP_IMAGE_URL + 'assets/videos/slipknotXboxI.mp4'

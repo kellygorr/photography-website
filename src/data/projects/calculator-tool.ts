@@ -1,6 +1,6 @@
 import { IProject, TagType, SkillType, HighlightName, SectionName } from '../IProject'
 
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/53.jpg'
+const thumbnail = 'calc.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/calculator-tool/itemcalc1.jpg'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/calculator-tool/itemcalc2.jpg'

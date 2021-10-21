@@ -1,5 +1,5 @@
 import { IProject } from '../IProject'
-const thumbnail = process.env.REACT_APP_IMAGE_URL + 'assets/thumbnails/test.jpg'
+const thumbnail = 'test.jpg'
 
 // const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/1.jpg'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/2.jpg'
