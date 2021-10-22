@@ -18,6 +18,7 @@ import { supersizedUserTesting } from './projects/supersized-user-testing'
 import { jewelBoxCafe } from './projects/jewel-box-cafe-redesign'
 import { owaCalendar } from './projects/owa-calendar'
 import { focusOrderer } from './projects/figma-focus-order'
+import { crimeSpot } from './projects/crime-spot'
 
 export const allProjects: IProject[] = [
 	focusOrderer,
@@ -33,6 +34,7 @@ export const allProjects: IProject[] = [
 	previewAppLinkGenerator,
 	tenGreatTeas,
 	earthquakeMap,
+	crimeSpot,
 	malariaInfographic,
 	welcomeEmails,
 	kMonogram,

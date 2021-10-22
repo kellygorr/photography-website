@@ -36,6 +36,7 @@ export const earthquakeMap: IProject = {
 				{
 					header: HighlightName.Skills,
 					tags: [
+						SkillType.Design,
 						SkillType.PHP,
 						SkillType.JavaScript,
 						SkillType.JQuery,

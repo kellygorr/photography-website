@@ -1,4 +1,4 @@
-import { HighlightName, IProject, SectionName, TagType, ToolType } from '../IProject'
+import { HighlightName, IProject, SectionName, SkillType, TagType, ToolType } from '../IProject'
 
 const thumbnail = 'tazo-tea.jpg'
 
@@ -40,6 +40,10 @@ export const tenGreatTeas: IProject = {
 		{
 			header: SectionName.Details,
 			highlight: [
+				{
+					header: HighlightName.Skills,
+					tags: [SkillType.Design],
+				},
 				{
 					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator],

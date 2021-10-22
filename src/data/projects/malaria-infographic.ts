@@ -1,4 +1,4 @@
-import { IProject, FileType, TagType, ToolType, SectionName, HighlightName } from '../IProject'
+import { IProject, FileType, TagType, ToolType, SectionName, HighlightName, SkillType } from '../IProject'
 
 const thumbnail = 'malaria.jpg'
 const thumbnail2 = '19.jpg'
@@ -30,6 +30,10 @@ export const malariaInfographic: IProject = {
 		{
 			header: SectionName.Details,
 			highlight: [
+				{
+					header: HighlightName.Skills,
+					tags: [SkillType.Design],
+				},
 				{
 					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator],

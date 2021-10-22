@@ -1,6 +1,6 @@
-import { IProject, FileType, TagType, ToolType, SectionName, HighlightName } from '../../IProject'
+import { IProject, FileType, TagType, ToolType, SectionName, HighlightName, SkillType } from '../IProject'
 
-const thumbnail = '22.jpg'
+const thumbnail = 'crime-spot.jpg'
 const thumbnail2 = '19.png'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/crime-spot/crimespot_1.png'
@@ -41,6 +41,10 @@ export const crimeSpot: IProject = {
 		{
 			header: SectionName.Details,
 			highlight: [
+				{
+					header: HighlightName.Skills,
+					tags: [SkillType.Design],
+				},
 				{
 					header: HighlightName.Tools,
 					tags: [ToolType.Illustrator, ToolType.Photoshop, ToolType.InDesign],

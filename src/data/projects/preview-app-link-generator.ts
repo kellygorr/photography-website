@@ -51,7 +51,7 @@ export const previewAppLinkGenerator: IProject = {
 			highlight: [
 				{
 					header: HighlightName.Skills,
-					tags: [SkillType.AngularJS, SkillType.JQuery, SkillType.JSON, SkillType.HTML, SkillType.CSS],
+					tags: [SkillType.Design, SkillType.AngularJS, SkillType.JQuery, SkillType.JSON, SkillType.HTML, SkillType.CSS],
 				},
 			],
 			body: "I was in charge of designing and creating the tool.  In the original version I used AngularJS's two-way data binding so the user could live-edit and create the link (This version is available to test below). In the final version I removed the live-edit functionality and instead used a ‘generate link’ button, because I didn't want users to have access to an unfinished link.  Details from the original app have been altered or removed.",

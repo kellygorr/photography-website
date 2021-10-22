@@ -38,7 +38,7 @@ export const welcomeEmails: IProject = {
 			highlight: [
 				{
 					header: HighlightName.Skills,
-					tags: [SkillType.HTML, SkillType.CSS],
+					tags: [SkillType.Design, SkillType.HTML, SkillType.CSS],
 				},
 				{
 					header: HighlightName.Tools,

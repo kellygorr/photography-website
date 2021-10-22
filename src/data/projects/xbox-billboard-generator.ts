@@ -56,7 +56,15 @@ export const xboxBillboardGenerator: IProject = {
 				},
 				{
 					header: HighlightName.Skills,
-					tags: [SkillType.PHP, SkillType.Ajax, SkillType.JQuery, SkillType.JSON, SkillType.HTML, SkillType.CSS],
+					tags: [
+						SkillType.Design,
+						SkillType.PHP,
+						SkillType.Ajax,
+						SkillType.JQuery,
+						SkillType.JSON,
+						SkillType.HTML,
+						SkillType.CSS,
+					],
 				},
 				{
 					header: HighlightName.Designer,

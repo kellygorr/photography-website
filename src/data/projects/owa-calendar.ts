@@ -61,7 +61,7 @@ export const owaCalendar: IProject = {
 			highlight: [
 				{
 					header: HighlightName.Skills,
-					tags: [SkillType.TypeScript, SkillType.React, SkillType.Fabric, SkillType.HTML, SkillType.CSS, SkillType.Prototyping],
+					tags: [SkillType.TypeScript, SkillType.React, SkillType.Fabric, SkillType.HTML, SkillType.CSS, SkillType.UIUX],
 				},
 			],
 			body: 'In 2018 Outlook launched a new Outlook.com that redesigned and added new features to Outlook Mail and Calendar and was built in React.  I partnered with the Calendar and Calendar Capture team as a UX engineer to implement the new Outlook calendar design and features.',
