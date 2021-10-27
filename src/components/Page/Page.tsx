@@ -32,7 +32,7 @@ export const Page: React.FC<IPageProps> = (props: IPageProps) => (
 			props.content.map((data: ISection, index) => {
 				const items = Object.entries(data) as ISection[]
 				const type = items[0][0]
-
+				console.log('type', type)
 				return (
 					<SectionPadding key={index} style={type !== SectionType.Slideshow ? sectionStyle : slideshowStyle}>
 						<SectionWidth style={{ maxWidth: type !== SectionType.Slideshow ? MAX_WIDTH : '' }}>

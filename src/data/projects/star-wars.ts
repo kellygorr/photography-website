@@ -2,6 +2,7 @@ import { IProject, FileType, SkillType, SectionName, HighlightName } from '../IP
 import { TagType } from '../IProject'
 
 const thumbnail = 'starwars.jpg'
+const thumbnail2 = 'starwars-kotaku.jpg'
 
 const video1 = process.env.REACT_APP_IMAGE_URL + 'assets/videos/starWars.mp4'
 
@@ -85,7 +86,7 @@ export const starWars: IProject = {
 			attachments: [
 				{
 					header: 'Kotaku article',
-					thumbnail: thumbnail,
+					thumbnail: thumbnail2,
 					file: {
 						type: FileType.Link,
 						source: 'http://kotaku.com/the-force-awakens-on-game-consoles-1768991827#',

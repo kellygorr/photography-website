@@ -83,7 +83,7 @@ const Container = styled.div<IStyle>`
 
 	img,
 	video {
-		max-height: 40vh;
+		max-height: 60vh;
 		max-width: calc(100vw - 6px); // room for border
 
 		@media (min-width: ${SMALL_SCREEN}px) {

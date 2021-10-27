@@ -1,24 +1,29 @@
-import * as React from 'react'
 import styled from 'styled-components/macro'
+import { useHistory } from 'react-router-dom'
+import { Sanitize } from '..'
 
 interface ITagProps {
 	isLastTag: boolean
 	tag: string
 	setQuery: (query: string) => void
+	pathname: string
 }
 
 export const Tag = (props: ITagProps): JSX.Element => {
 	const { isLastTag, tag } = props
 	const tagName = tag === 'UI-UX' ? 'UI/UX' : tag
+	const history = useHistory()
 
-	const handleClick = (text: string) => {
-		const query = text
+	const handleClick = (e: React.MouseEvent, text: string) => {
+		e.stopPropagation()
+		const query = Sanitize(text)
+		history.replace({ pathname: props.pathname, search: '?q=' + query })
 		props.setQuery(query)
 	}
 
 	return (
 		<>
-			<TagButton onClick={() => handleClick(tagName)} tabIndex={-1}>
+			<TagButton onClick={(e) => handleClick(e, tagName)} tabIndex={-1}>
 				{tagName}
 			</TagButton>
 			{!isLastTag && ', '}

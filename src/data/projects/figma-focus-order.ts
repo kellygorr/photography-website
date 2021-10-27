@@ -1,8 +1,8 @@
 import { IProject, TagType, SkillType, FileType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = 'focus-orderer.jpg'
-const thumbnail2 = '75.jpg'
-const thumbnail3 = '76.jpg'
+const thumbnail2 = 'focus-orderer-twitter.jpg'
+const thumbnail3 = 'focus-orderer-instagram.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/focus-orderer/1.jpg'
 const img5 = process.env.REACT_APP_IMAGE_URL + 'assets/images/focus-orderer/3.jpg'

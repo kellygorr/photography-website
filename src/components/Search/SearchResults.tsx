@@ -19,6 +19,7 @@ export const SearchResults = (props: ISearchProps): JSX.Element => {
 	if (!props.query) {
 		return null
 	}
+
 	const relatedMatches: IProjectSearch[] = relatedQueryMatches(props.projects, props.query)
 	let matches: IProjectSearch[] = queryMatches(props.projects, props.query)
 	matches = removeDuplicateTitles([...relatedMatches, ...matches])
@@ -130,7 +131,7 @@ const Gallery = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 450px));
 	justify-content: center;
-	grid-gap: 10px;
+	grid-gap: 25px 15px;
 
 	@media (min-width: ${SMALL_SCREEN}px) {
 		grid-template-columns: repeat(2, minmax(200px, 450px));
@@ -154,5 +155,5 @@ const Gallery = styled.ul`
 const Divider = styled.hr`
 	height: 1px;
 	width: 100%;
-	background-color: ${({ theme }) => theme.thumbnail};
+	background-color: transparent;
 `

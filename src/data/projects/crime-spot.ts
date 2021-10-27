@@ -1,7 +1,7 @@
 import { IProject, FileType, TagType, ToolType, SectionName, HighlightName, SkillType } from '../IProject'
 
 const thumbnail = 'crime-spot.jpg'
-const thumbnail2 = '19.png'
+const thumbnail2 = 'crime-spot-pdf.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/crime-spot/crimespot_1.png'
 const img2 = process.env.REACT_APP_IMAGE_URL + 'assets/images/crime-spot/crimespot_2.png'

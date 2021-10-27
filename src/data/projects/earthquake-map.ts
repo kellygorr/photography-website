@@ -1,7 +1,7 @@
 import { IProject, FileType, TagType, SkillType, ToolType, SectionName, HighlightName } from '../IProject'
 
 const thumbnail = 'earthquake.jpg'
-const thumbnail2 = '21.jpg'
+const thumbnail2 = 'earthquake-pdf.jpg'
 
 const img1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/earthquake-map/large17.jpg'
 const pdf1 = process.env.REACT_APP_IMAGE_URL + 'assets/images/earthquake-map/Kelly_Gorr_Code_Sample.pdf'

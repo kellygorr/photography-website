@@ -2,10 +2,9 @@ import * as React from 'react'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { SearchIcon } from '../../assets/svg/SearchIcon'
-import { SkillType, TagType, ToolType } from '../../data/IProject'
+import { SkillType, TagType } from '../../data/IProject'
 import { useHistory } from 'react-router-dom'
-import { SanatizePath, Sanatize, Sidebar } from '../shared'
-import { SIDE_GAP } from '../../styles/GlobalStyles'
+import { Sanitize, Sidebar } from '../shared'
 
 interface ISearchProps {
 	query: string
@@ -33,7 +32,7 @@ const idea = {
 	open: { y: 20 },
 }
 
-const ideasList = [SkillType.React, TagType.Tooling, ToolType.Photoshop]
+const ideasList = [SkillType.React, TagType.Tooling, SkillType.Design]
 
 export const SearchBar = (props: ISearchProps): JSX.Element => {
 	const ref = React.useRef<HTMLInputElement>()
@@ -42,6 +41,7 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 
 	React.useEffect(() => {
 		if (props.isSearching) {
+			ref.current.value = props.query
 			ref.current.focus()
 		} else {
 			setTriggerContent('closed')
@@ -54,9 +54,8 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 	}
 
 	const handleIdeaClick = (item: string) => {
-		const query = Sanatize(item)
-		const pathname = UpdatePathQuery(props.pathname, query)
-		history.replace({ pathname })
+		const query = Sanitize(item)
+		history.replace({ pathname: props.pathname, search: '?q=' + query })
 		props.setQuery(query)
 
 		ref.current.value = query
@@ -64,9 +63,8 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 
 	const handleKeyDown = (e: React.KeyboardEvent) => {
 		if (e.key === 'Enter') {
-			const query = Sanatize((e.target as HTMLInputElement).value)
-			const pathname = UpdatePathQuery(props.pathname, query)
-			history.replace({ pathname })
+			const query = (e.target as HTMLInputElement).value
+			history.replace({ pathname: props.pathname, search: '?q=' + query })
 			props.setQuery(query)
 		}
 	}
@@ -105,10 +103,6 @@ export const SearchBar = (props: ISearchProps): JSX.Element => {
 			)}
 		</Container>
 	)
-}
-
-const UpdatePathQuery = (path: string, query: string) => {
-	return `${SanatizePath(path)}?q=${Sanatize(query)}`
 }
 
 const Container = styled.div`

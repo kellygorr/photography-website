@@ -2,23 +2,14 @@ import * as React from 'react'
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components/macro'
 import { allProjects } from './data'
-import {
-	BOTTOM_GAP,
-	GlobalStyles,
-	LARGE_SCREEN,
-	MEDIUM_SCREEN,
-	MEDIUM_SMALL_SCREEN,
-	SIDE_GAP,
-	SIDE_GAP_SMALL_SCREEN,
-	SMALL_SCREEN,
-} from './styles/GlobalStyles'
+import { BOTTOM_GAP, GlobalStyles, LARGE_SCREEN, SIDE_GAP, SIDE_GAP_SMALL_SCREEN, SMALL_SCREEN } from './styles/GlobalStyles'
 import { Header as HeaderContent } from './components/Header'
 import { Footer } from './components/Footer'
 import { Home } from './components/Home'
 import { Page } from './components/Page'
 import { SearchBar, SearchResults } from './components/Search'
 import { themeLight, themeDark } from './styles/theme'
-import { SanatizePath, GetPageName, useDarkMode } from './components/shared'
+import { GetPageName, useDarkMode, SanitizePath } from './components/shared'
 import { AnimatePresence, motion } from 'framer-motion'
 import { IProject } from './data/IProject'
 import { useMediaQuery } from './components/shared/hooks/useMediaQuery'
@@ -35,11 +26,16 @@ const App = (): JSX.Element => {
 	const [query, setQuery] = React.useState(searchQuery)
 
 	const isSmallScreen = useMediaQuery(`(max-width: ${SMALL_SCREEN}px)`)
+
 	React.useEffect(() => {
 		if (query) {
 			setIsSearching(true)
 		}
 	}, [query])
+
+	React.useEffect(() => {
+		setQuery(searchQuery)
+	}, [searchQuery])
 
 	const thumbnailClick = () => {
 		setIsSearching(false)
@@ -68,7 +64,7 @@ const App = (): JSX.Element => {
 
 					<Canvas>
 						<AnimateContent
-							key={location.pathname + isSearching}
+							key={location.pathname + query}
 							initial={{ opacity: 0 }}
 							animate={{
 								opacity: 1,
@@ -97,7 +93,7 @@ const App = (): JSX.Element => {
 									<Route
 										path="/page/:title?"
 										render={({ match }) => {
-											const projectName = SanatizePath(match.params.title)
+											const projectName = SanitizePath(match.params.title)
 											const project = projects.find((project) => projectName === GetPageName(project.details.header))
 											return project ? (
 												<PageWrapper>
