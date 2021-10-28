@@ -99,8 +99,8 @@ export const interactiveVideoPlaylist: IProject = {
 				},
 			],
 		},
+		{ title: 'Interactive Slipknot Music Video' },
 		{
-			header: 'Interactive Slipknot Music Video',
 			slideshow: {
 				width: 1250,
 				slides: [

@@ -102,8 +102,8 @@ export const xboxQuizzes: IProject = {
 				},
 			],
 		},
+		{ title: 'Game of Thrones Quiz' },
 		{
-			header: 'Game of Thrones Quiz',
 			slideshow: {
 				width: 1250,
 				slides: [

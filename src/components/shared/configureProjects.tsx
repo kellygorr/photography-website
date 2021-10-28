@@ -4,6 +4,11 @@ export const configureProjects = (projects: IProject[]): IProject[] => {
 	projects?.forEach((project) => {
 		const highlights: IHighlight[] = []
 
+		// Add title to beginning of content
+		if (!project.content[0].header) {
+			project.content.unshift({ title: project.details.header })
+		}
+
 		// Find all highlights and add them to details (thumbnail)
 		project?.content?.forEach((section) => {
 			section?.highlight?.forEach((highlight) => {

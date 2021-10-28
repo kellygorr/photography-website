@@ -104,8 +104,8 @@ export const xboxLiveEvents: IProject = {
 				},
 			],
 		},
+		{ title: 'The Game Awards 2015' },
 		{
-			header: 'The Game Awards 2015',
 			slideshow: {
 				width: 1408,
 				slides: [
@@ -152,7 +152,7 @@ export const xboxLiveEvents: IProject = {
 		},
 		{
 			header: SectionName.Overview,
-			body: 'The Game Awards celebrates the best video games of the year.  For the 2015 event it was available to watch live on Xbox One(XLEi), Twitch, Playstation Network, Steam, YouTube, Kotaku, and more.  The XLEi app featured an exclusive game that let viewers play along with the event and it was promoted on YouTube, Twitter, and other media outlets and it was discussed during the live show.',
+			body: 'The Game Awards celebrates the best video games of the year.  For the 2015 event it was available to watch live on Xbox One (XLEi), Twitch, Playstation Network, Steam, YouTube, Kotaku, and more.  The XLEi app featured an exclusive game that let viewers play along with the event and it was promoted on YouTube, Twitter, and other media outlets and it was discussed during the live show.',
 		},
 		{
 			header: SectionName.Role,
@@ -212,8 +212,8 @@ export const xboxLiveEvents: IProject = {
 				},
 			],
 		},
+		{ title: 'Gamescom 2015: Xbox Daily Show' },
 		{
-			header: 'Gamescom 2015: Xbox Daily Show',
 			slideshow: {
 				width: 1440,
 				slides: [
@@ -299,8 +299,8 @@ export const xboxLiveEvents: IProject = {
 				},
 			],
 		},
+		{ title: 'E3 2015: Xbox Daily Show' },
 		{
-			header: 'E3 2015: Xbox Daily Show',
 			slideshow: {
 				width: 1914,
 				slides: [
@@ -350,8 +350,8 @@ export const xboxLiveEvents: IProject = {
 				},
 			],
 		},
+		{ title: 'Call of Duty Championship 2015' },
 		{
-			header: 'Call of Duty Championship 2015',
 			slideshow: {
 				width: 1920,
 				slides: [

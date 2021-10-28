@@ -137,7 +137,7 @@ const Gallery = styled.ul`
 		grid-template-columns: repeat(2, minmax(200px, 450px));
 	}
 
-	> h2 {
+	> h3 {
 		grid-row: 1;
 		grid-column: 1/-1;
 

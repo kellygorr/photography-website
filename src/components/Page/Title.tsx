@@ -1,11 +1,12 @@
 import * as React from 'react'
 import styled from 'styled-components/macro'
 import { MEDIUM_SMALL_SCREEN } from '../../styles/GlobalStyles'
-interface IPageProps {
+
+interface ITitleProps {
 	children?: React.ReactNode
 }
 
-export const Heading: React.FC<IPageProps> = (props: IPageProps) => {
+export const Title = (props: ITitleProps): JSX.Element => {
 	if (!props.children) {
 		return null
 	}
@@ -13,20 +14,13 @@ export const Heading: React.FC<IPageProps> = (props: IPageProps) => {
 	return <Container>{props.children}</Container>
 }
 
-const Container = styled.h3`
+const Container = styled.h2`
 	display: flex;
 	font-family: 'Museo_Slab_500_2';
 	font-size: 1.3rem;
-	padding-bottom: 0.2rem;
-
-	/* The paragraph immediately after a header does not need to have padding-top (this is covered by the header) */
-	+ p {
-		padding-top: 0;
-	}
-
-	border-color: ${({ theme }) => theme.thumbnail};
+	padding-top: 1.5rem;
 
 	@media (min-width: ${MEDIUM_SMALL_SCREEN}px) {
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 	}
 `

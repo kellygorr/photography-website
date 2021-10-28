@@ -45,10 +45,10 @@ export const Thumbnail = (props: IThumbnailProps): JSX.Element => {
 							<Blank />
 						)}
 					</ImageWrapper>
-					<H3 style={{ textAlign: props.showFull ? 'start' : 'center' }}>
+					<Header style={{ textAlign: props.showFull ? 'start' : 'center' }}>
 						<span>{props.showFull && 'Project:'}</span>
 						{data.header}
-					</H3>
+					</Header>
 				</LinkWrapper>
 			</LinkStyle>
 			{data.tags && !hideTags && (
@@ -103,7 +103,7 @@ const Image = styled.img`
 	}
 `
 
-const H3 = styled.h3`
+const Header = styled.h4`
 	font-family: 'Museo_Slab_500_2';
 	transition: color 100ms ease-in;
 
@@ -125,7 +125,7 @@ const LinkStyle = styled.div`
 			${ImageWrapper} {
 				border-color: ${({ theme }) => theme.accent};
 			}
-			${H3} {
+			${Header} {
 				color: ${({ theme }) => theme.accent};
 			}
 		}

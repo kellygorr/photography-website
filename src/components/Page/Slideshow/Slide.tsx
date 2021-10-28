@@ -45,15 +45,14 @@ export const Slide: React.FC<IPageProps> = (props: IPageProps) => {
 						: AccentColors.red
 					: 'transparent',
 				transitionDuration: isScrolling ? '0s' : '300ms',
-				maxWidth: data.width ? data.width + 'px' : defaultWidth + 'px',
 			}}
 		>
 			{data.file && data.file.type === FileType.Video ? (
-				<video controls poster={data.img}>
+				<video controls poster={data.img} style={{ maxWidth: data.width ? data.width + 'px' : defaultWidth + 'px' }}>
 					<source src={data.file.source} type="video/mp4" />
 				</video>
 			) : (
-				<img src={data.img} alt={data.img} />
+				<img src={data.img} alt={data.img} style={{ maxWidth: data.width ? data.width + 'px' : defaultWidth + 'px' }} />
 			)}
 		</Container>
 	)
@@ -84,11 +83,7 @@ const Container = styled.div<IStyle>`
 	img,
 	video {
 		max-height: 60vh;
-		max-width: calc(100vw - 6px); // room for border
-
-		@media (min-width: ${SMALL_SCREEN}px) {
-			min-height: 350px;
-		}
+		width: 100vw;
 	}
 
 	@media (min-width: ${SMALL_SCREEN}px) {

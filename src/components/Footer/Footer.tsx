@@ -112,13 +112,13 @@ const Header = styled.div``
 const URL = styled.span``
 
 const StyledLink = styled.a`
-	&:after {
+	&:before {
 		content: ' ';
 		position: absolute;
-		top: -5px;
+		pointer-events: none;
+		top: 0px;
 		left: -15px;
-		right: -7px;
-		bottom: -5px;
+		bottom: 0px;
 		transition: border-color 100ms ease-in, left 100ms ease-in;
 		border-left: 2px solid transparent;
 	}
@@ -127,8 +127,8 @@ const StyledLink = styled.a`
 	&:focus {
 		text-decoration: none;
 
-		&:after {
-			left: -7px;
+		&:before {
+			left: -8px;
 			border-color: ${({ theme }) => theme.footerText};
 		}
 	}

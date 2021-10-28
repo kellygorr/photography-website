@@ -5,7 +5,7 @@ import { ISlideshow, SectionType, IHighlight, IThumbnail, TagType, SkillType, To
 import { Body } from './Body'
 import { Slideshow } from './Slideshow/Slideshow'
 import { Tags, Thumbnail } from '../shared'
-import { Heading } from '.'
+import { Heading, Title } from '.'
 import { SMALL_SCREEN } from '../../styles/GlobalStyles'
 
 interface ISectionProps {
@@ -16,6 +16,7 @@ interface ISectionProps {
 
 export const Section: React.FC<ISectionProps> = (props: ISectionProps) => (
 	<>
+		{props.type === SectionType.Title && <Title>{props.data as string}</Title>}
 		{props.type === SectionType.Header && <Heading>{props.data as string}</Heading>}
 		{props.type === SectionType.Slideshow && (
 			<Slideshow

@@ -2,7 +2,6 @@ import * as React from 'react'
 import styled from 'styled-components/macro'
 import { ISection, SectionType } from '../../data/IProject'
 import { MEDIUM_SMALL_SCREEN, SIDE_GAP } from '../../styles/GlobalStyles'
-import { Heading } from './Heading'
 import { Section } from './Section'
 interface IPageProps {
 	header: string
@@ -22,27 +21,19 @@ const slideshowStyle = {
 
 export const Page: React.FC<IPageProps> = (props: IPageProps) => (
 	<Container>
-		<SectionPadding style={sectionStyle}>
-			<HeadingWrapper>
-				<Heading>{props.header}</Heading>
-			</HeadingWrapper>
-		</SectionPadding>
-
-		{props.content &&
-			props.content.map((data: ISection, index) => {
-				const items = Object.entries(data) as ISection[]
-				const type = items[0][0]
-				console.log('type', type)
-				return (
-					<SectionPadding key={index} style={type !== SectionType.Slideshow ? sectionStyle : slideshowStyle}>
-						<SectionWidth style={{ maxWidth: type !== SectionType.Slideshow ? MAX_WIDTH : '' }}>
-							{items.map((item, index) => {
-								return <Section key={index} type={item[0]} data={item[1]} setQuery={props.setQuery} />
-							})}
-						</SectionWidth>
-					</SectionPadding>
-				)
-			})}
+		{props.content.map((data: ISection, index) => {
+			const items = Object.entries(data) as ISection[]
+			const type = items[0][0]
+			return (
+				<SectionPadding key={index} style={type !== SectionType.Slideshow ? sectionStyle : slideshowStyle}>
+					<SectionWidth style={{ maxWidth: type !== SectionType.Slideshow ? MAX_WIDTH : '' }}>
+						{items.map((item, index) => {
+							return <Section key={index} type={item[0]} data={item[1]} setQuery={props.setQuery} />
+						})}
+					</SectionWidth>
+				</SectionPadding>
+			)
+		})}
 	</Container>
 )
 
@@ -61,11 +52,6 @@ const Container = styled.div`
 	@media (min-width: ${MEDIUM_SMALL_SCREEN}px) {
 		font-size: 1.2rem;
 	}
-`
-const HeadingWrapper = styled.div`
-	width: 100%;
-	max-width: ${MAX_WIDTH};
-	margin: 0 auto;
 `
 
 const SectionPadding = styled.div`

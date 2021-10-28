@@ -55,6 +55,7 @@ export const relatedTags: (TagType | SkillType | ToolType)[][] = [
 ]
 
 export enum SectionType {
+	Title = 'title',
 	Header = 'header',
 	Slideshow = 'slideshow',
 	Body = 'body',
@@ -102,6 +103,7 @@ export interface IProject {
 }
 
 export interface ISection {
+	title?: string
 	header?: SectionName | string
 	slideshow?: ISlideshow
 	body?: string
