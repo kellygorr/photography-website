@@ -9,7 +9,6 @@ import { SettingsButton } from './SettingsButton'
 const list: IHighlight[] = [
 	{
 		header: 'Contact/Resume',
-		body: 'LinkedIn',
 		link: {
 			title: 'LinkedIn',
 			link: 'https://www.linkedin.com/in/kellygorr/',
