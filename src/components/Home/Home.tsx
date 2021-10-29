@@ -89,7 +89,7 @@ const Gallery = styled.ul`
 	}
 
 	@media (min-width: ${LARGE_SCREEN}px) {
-		grid-template-columns: repeat(auto-fit, ${GRID_WIDTH + GRID_GAP}px);
+		grid-template-columns: repeat(auto-fit, 450px);
 		grid-gap: 0px;
 
 		> li {
