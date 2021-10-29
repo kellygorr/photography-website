@@ -35,5 +35,4 @@ package-deps.json
 /.cache
 
 # assets
-assets/
 src/react-app-env.d.ts

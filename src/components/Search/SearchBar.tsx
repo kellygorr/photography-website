@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
-import { SearchIcon } from '../../assets/svg/SearchIcon'
+import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg'
 import { SkillType, TagType } from '../../data/IProject'
 import { useHistory } from 'react-router-dom'
 import { Sanitize, Sidebar } from '../shared'

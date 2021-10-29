@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { CogIcon } from '../../assets/svg/CogIcon'
-import { CogFilledIcon } from '../../assets/svg/CogFilledIcon'
+import { ReactComponent as CogIcon } from '../../assets/svg/cog.svg'
+import { ReactComponent as CogFilledIcon } from '../../assets/svg/cog-filled.svg'
 import { motion } from 'framer-motion'
 
 interface ISettingsButtonProps {
